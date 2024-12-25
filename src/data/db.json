@@ -1,1 +1,13 @@
-{}
+{
+  "companies": [
+    {
+      "id": "5286",
+      "name": "Nithish K S",
+      "location": "Palamaner, Chittoor, Andhra Pradesh, IND",
+      "linkedinProfile": "linkedin",
+      "emails": "email",
+      "phoneNumbers": "999999",
+      "comments": "zxa"
+    }
+  ]
+}

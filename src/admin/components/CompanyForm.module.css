@@ -1,0 +1,69 @@
+/* src/admin/components/CompanyForm.module.css */
+
+.form{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; /* Light background color for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 24px; /* Larger font size for the heading */
+    color: #333; /* Darker color for better readability */
+}
+
+input,
+textarea {
+    padding: 10px; /* Padding inside input fields */
+    border-radius: 4px; /* Rounded corners for inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    font-size: 16px; /* Font size for inputs */
+    transition: border-color 0.3s ease; /* Smooth transition for border color on focus */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007BFF; /* Change border color on focus to blue */
+}
+
+.buttonContainer {
+     display:flex ;
+     justify-content :space-between ;
+     margin-top :20px ;
+}
+
+button {
+     padding :10px ;
+     border-radius :5px ;
+     font-size :16px ;
+     cursor:pointer ;
+}
+
+button[type="submit"] {
+     background-color:#007BFF ;
+     color:white ;
+     border:none ;
+}
+
+button[type="submit"]:hover {
+     background-color:#0056b3 ;
+}
+
+.closeButton {
+     background-color:#dc3545 ;
+     color:white ;
+     border:none ;
+     margin-right :10px ;
+}
+
+.closeButton:hover {
+     background-color:#c82333 ;
+}
+
+/* Additional styles for textarea to make it more user-friendly*/
+textarea {
+     resize :vertical ;/* Allow vertical resizing only */  
+}

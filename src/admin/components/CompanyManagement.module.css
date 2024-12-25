@@ -1,0 +1,200 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; /* Allows cards to wrap to the next line */
+    justify-content: space-between; /* Space between cards */
+    padding: 20px; /* Padding around the card container */
+}
+
+/* Individual card styles */
+.card {
+    display: flex;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 10px;
+        width: calc(95% - 20px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+}
+.name{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+/* Button styles */
+.addButton {
+    background-color: #4CAF50; /* Green background for add button */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding inside button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.addButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.buttonContainer {
+    margin-top: 10px; /* Space above button container */
+}
+
+.updateButton,
+.deleteButton {
+    background-color: #007BFF; /* Blue background for update button */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.updateButton:hover {
+    background-color: #0056b3; /* Darker blue on hover for update button */
+}
+
+.deleteButton {
+    background-color: #dc3545; /* Red background for delete button */
+}
+
+.deleteButton:hover {
+    background-color: #c82333; /* Darker red on hover for delete button */
+}
+
+/* Modal styles */
+.modal {
+    position: fixed; /* Fixed positioning to cover the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modalContent {
+   background-color: #ffffff; /* White background for modal content */ 
+   padding :20px ;/* Padding inside modal */ 
+   border-radius :8px ;/* Rounded corners */ 
+   box-shadow :0 4px 20px rgba(0, 0, 0, 0.2);/* Shadow for depth */ 
+   width :400px ;/* Fixed width for the modal */ 
+   max-width :90%;/* Responsive max width */ 
+}
+
+
+.closeButton:hover {
+   color:#0056b3 ;/* Darker blue on hover */ 
+}
+
+/* Input and textarea styles inside modal (if needed) can be added here */
+/* Example styles for inputs and buttons in the form can be included as well */
+
+input,
+textarea,
+button {
+   font-family :Arial ,sans-serif ;/* Consistent font across inputs and buttons */ 
+}
+
+/* Input and textarea styles inside modal (if needed) can be added here */
+/* Example styles for inputs and buttons in the form can be included as well */
+
+input[type="text"],
+textarea {
+    width: calc(100% - 16px); /* Full width minus padding/margin */ 
+    padding: 10px; /* Padding inside input fields */ 
+    margin-bottom: 15px; /* Space below input fields */ 
+    border-radius: 4px; /* Rounded corners for inputs */ 
+    border: 1px solid #ccc; /* Light gray border for inputs */ 
+    transition: border-color 0.3s ease; /* Smooth transition for border color on focus */ 
+    outline: none; /* Remove default outline on focus */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007BFF; /* Change border color on focus to blue */ 
+    outline: none; /* Ensure no outline appears on focus */
+}
+
+/* src/admin/components/CompanyManagement.module.css */
+
+/* Overall container for the cards */
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    justify-content: space-between; /* Space between cards */
+    padding: 20px; /* Padding around the card container */
+}
+
+/* Individual card styles */
+.card {
+    display: flex
+    ;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 10px;
+        width: calc(95% - 20px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: space-evenly;
+        align-items: flex-start;
+}
+
+/* Name heading style */
+.name {
+    font-size: 20px; /* Font size for company name */
+    color: #333; /* Darker color for better readability */
+    margin-bottom: 10px; /* Space below name */
+}
+
+/* Details grid style */
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    gap: 10px; /* Space between grid items */
+    margin-bottom: 15px; /* Space below details grid */
+}
+
+.detailsGrid span {
+    color: #555; /* Gray color for detail text */
+}
+
+/* Button styles */
+.buttonContainer {
+    display: flex; /* Use flexbox to arrange buttons side by side */
+    justify-content: space-between; /* Space between buttons */
+}
+
+.updateButton,
+.deleteButton {
+    background-color: #007BFF; /* Blue background for update button */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.updateButton:hover {
+    background-color: #0056b3; /* Darker blue on hover for update button */
+}
+
+.deleteButton {
+   background-color :#dc3545 ;/* Red background for delete button */ 
+}
+
+.deleteButton:hover {
+   background-color :#c82333 ;/* Darker red on hover for delete button */ 
+}

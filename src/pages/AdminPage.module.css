@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width: 60%;
+    height: 100%;
+}
+.right{
+    width: 40%;
+    height: 100%;
+}
+
+.heading{
+    text-align: center;
+}
