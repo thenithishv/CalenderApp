@@ -3,21 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Style Heading */
+.heading{
+    text-align: center;
+}
 
+/* Style Content */
 .content{
     display: flex;
     flex-direction: row;
 }
 
 .left{
-    width: 60%;
+    width: 65%;
     height: 100%;
 }
 .right{
-    width: 40%;
+    display: flex;
+    flex-direction: row;
+    width: 35%;
     height: 100%;
 }
 
-.heading{
-    text-align: center;
-}

@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './store/store'; // Adjust the path as necessary
 import App from './App'; // Correctly importing App as default
+import './index.css'; // Importing the CSS file
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

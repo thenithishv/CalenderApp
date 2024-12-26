@@ -1,0 +1,41 @@
+/* src/admin/components/Modal.module.css */
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.modalContent {
+    background-color: #ffffff; /* White background for the modal */
+    padding: 20px; /* Padding inside the modal */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Maximum width for larger screens */
+    max-height: 80%; /* Limit height of modal */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    position: relative; /* Position relative to allow absolute positioning of close button */
+}
+
+.closeButton {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 24px; /* Larger font size for close button */
+    color: #333; /* Dark color for close button */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Positioning for close button */
+    top: 10px; /* Position at the top of the modal */
+    right: 15px; /* Position towards the right of the modal */
+}
+
+.closeButton:hover {
+    color: #dc3545; /* Change color on hover */
+}

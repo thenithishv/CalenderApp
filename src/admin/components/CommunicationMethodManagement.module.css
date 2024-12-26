@@ -1,0 +1,123 @@
+/* src/admin/components/CommunicationMethodManagement.module.css */
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Space between cards */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 16px); /* Adjust width as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform .2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+ }
+ 
+
+.name {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.details {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Space buttons evenly */
+}
+
+.updateButton,
+.deleteButton {
+    padding: 8px 12px;
+}
+
+/* CommunicationMethodForm.module.css or relevant CSS file */
+
+.methodDetails {
+    display: grid; /* Use grid layout for structured display */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 10px; /* Space between elements */
+    padding: 15px; /* Padding inside the container */
+    
+}
+
+.name {
+    font-size: 1.2em; /* Larger font size for the name */
+    color: #333; /* Darker color for better readability */
+    margin-bottom: 10px; /* Space below the name */
+}
+
+.methodDetails p {
+    font-size: 1em; /* Standard font size for description */
+    color: #333; /* Darker color for better readability */
+}
+
+.methodDetails span {
+    font-size: 0.9em; /* Slightly smaller font size for additional info */
+    color: #555; /* Medium gray color for less emphasis */
+}
+
+.buttonContainer {
+    display: flex; /* Flexbox for button alignment */
+    justify-content: flex-start; /* Align buttons to the left */
+    gap: 10px; /* Space between buttons */
+}
+
+.updateButton,
+.deleteButton {
+    padding: 8px 12px; /* Padding inside buttons */
+    border-radius: 4px; /* Rounded corners for buttons */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.updateButton {
+    background-color: #007bff; /* Primary button color (Update) */
+    color: white; /* White text color on update button */
+}
+
+.updateButton:hover {
+    background-color: #0056b3; /* Darker shade on hover for update button */
+}
+
+.deleteButton {
+    background-color: #dc3545; /* Danger button color (Delete) */
+    color: white; /* White text color on delete button */
+}
+
+.deleteButton:hover {
+    background-color: #c82333; /* Darker shade on hover for delete button */
+}
+
+
+.addBtn {
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border by default */
+    background-color: #28a745; /* Green background for add button (if separate from submit) */
+    color: white; /* White text color */
+    margin-left: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .addBtn:hover {
+    background-color: #218838; /* Darker green on hover for add button */
+  }
+

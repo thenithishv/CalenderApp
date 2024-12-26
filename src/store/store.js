@@ -1,6 +1,6 @@
 // src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import adminReducer from '../admin/adminSlice'; // Adjust the path as necessary
+import adminReducer from '../admin/adminSlice';
 
 const store = configureStore({
     reducer: {
@@ -8,4 +8,4 @@ const store = configureStore({
     },
 });
 
-export default store; // Ensure this line is present for default export
+export default store;

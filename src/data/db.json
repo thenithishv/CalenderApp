@@ -1,13 +1,83 @@
 {
   "companies": [
     {
-      "id": "5286",
-      "name": "Nithish K S",
-      "location": "Palamaner, Chittoor, Andhra Pradesh, IND",
-      "linkedinProfile": "linkedin",
-      "emails": "email",
-      "phoneNumbers": "999999",
-      "comments": "zxa"
+      "id": 1,
+      "name": "Company A",
+      "location": "Location A",
+      "linkedinProfile": "https://www.linkedin.com/in/company-a",
+      "emails": [
+        "contact@companya.com"
+      ],
+      "phoneNumbers": [
+        "1234567890"
+      ],
+      "comments": "Some comments about Company A.",
+      "communicationPeriodicity": "every 2 weeks"
+    },
+    {
+      "id": 2,
+      "name": "Company B",
+      "location": "Location B",
+      "linkedinProfile": "https://www.linkedin.com/in/company-b",
+      "emails": [
+        "contact@companyb.com"
+      ],
+      "phoneNumbers": [
+        "0987654321"
+      ],
+      "comments": "Some comments about Company B.",
+      "communicationPeriodicity": "every month"
+    },
+    {
+      "id": "d533",
+      "name": "Google",
+      "location": "Banglore",
+      "linkedinProfile": "https://www.linkedin.com/in/thenithishv/",
+      "emails": [
+        "googgle@google.com"
+      ],
+      "phoneNumbers": [
+        "1234567893"
+      ],
+      "comments": "swda",
+      "communicationPeriodicity": "ac"
+    }
+  ],
+  "communication-methods": [
+    {
+      "id": 1,
+      "name": "LinkedIn Post",
+      "description": "Post updates on LinkedIn.",
+      "sequence": 1,
+      "mandatory": true
+    },
+    {
+      "id": 2,
+      "name": "LinkedIn Message",
+      "description": "Send messages via LinkedIn.",
+      "sequence": 2,
+      "mandatory": false
+    },
+    {
+      "id": 3,
+      "name": "Email",
+      "description": "Communicate via email.",
+      "sequence": 3,
+      "mandatory": true
+    },
+    {
+      "id": 4,
+      "name": "Phone Call",
+      "description": "Direct phone calls.",
+      "sequence": 4,
+      "mandatory": false
+    },
+    {
+      "id": 5,
+      "name": "Other",
+      "description": "",
+      "sequence": 5,
+      "mandatory": false
     }
   ]
 }
