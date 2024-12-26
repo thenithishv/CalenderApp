@@ -44,7 +44,7 @@ export const validateCompanyForm = (name, location, emails, phoneNumbers, linked
    }
 
    // Validate LinkedIn profile URL
-   const linkedinRegEx = /^(http(s)?:\/\/)?(www\.)?linkedin\.com\/(pub|in|profile)\/([-a-zA-Z0-9]+)\/*/;
+   const linkedinRegEx = /^(http(s)?:\/\/)?(www\.)?linkedin\.com\/(pub|in|profile|company)\/([-a-zA-Z0-9]+)\/*/;
    if (linkedinProfile && !linkedinRegEx.test(linkedinProfile)) {
        valid = false;
        invalid.linkedinProfile = 'Enter a valid LinkedIn profile URL';

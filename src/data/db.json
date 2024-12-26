@@ -1,83 +1,70 @@
 {
   "companies": [
     {
-      "id": 1,
-      "name": "Company A",
-      "location": "Location A",
-      "linkedinProfile": "https://www.linkedin.com/in/company-a",
+      "id": "2a8d",
+      "name": "ENTNT",
+      "location": "Abu Dhabi",
+      "linkedinProfile": "https://www.linkedin.com/company/entnt",
       "emails": [
-        "contact@companya.com"
+        "contact@entnt.com"
       ],
       "phoneNumbers": [
-        "1234567890"
+        "1231231234"
       ],
-      "comments": "Some comments about Company A.",
+      "comments": "Outsourcing and Offshoring Consulting",
       "communicationPeriodicity": "every 2 weeks"
     },
     {
-      "id": 2,
-      "name": "Company B",
-      "location": "Location B",
-      "linkedinProfile": "https://www.linkedin.com/in/company-b",
-      "emails": [
-        "contact@companyb.com"
-      ],
-      "phoneNumbers": [
-        "0987654321"
-      ],
-      "comments": "Some comments about Company B.",
-      "communicationPeriodicity": "every month"
-    },
-    {
-      "id": "d533",
+      "id": "716a",
       "name": "Google",
       "location": "Banglore",
-      "linkedinProfile": "https://www.linkedin.com/in/thenithishv/",
+      "linkedinProfile": "https://www.linkedin.com/company/google/",
       "emails": [
-        "googgle@google.com"
+        "support-in@google.com"
       ],
       "phoneNumbers": [
-        "1234567893"
+        "9879879876"
       ],
-      "comments": "swda",
-      "communicationPeriodicity": "ac"
+      "comments": "Google is an American multinational technology company that specializes in internet-related products and services",
+      "communicationPeriodicity": "every month"
     }
   ],
   "communication-methods": [
     {
-      "id": 1,
+      "id": "2abc",
       "name": "LinkedIn Post",
-      "description": "Post updates on LinkedIn.",
-      "sequence": 1,
-      "mandatory": true
+      "description": "We Communicate through LinkedIn post",
+      "sequence": "1",
+      "mandatory": false
     },
     {
-      "id": 2,
+      "id": "c46c",
       "name": "LinkedIn Message",
-      "description": "Send messages via LinkedIn.",
-      "sequence": 2,
-      "mandatory": false
-    },
-    {
-      "id": 3,
-      "name": "Email",
-      "description": "Communicate via email.",
-      "sequence": 3,
+      "description": "We Communicate through LinkedIn Message",
+      "sequence": "2",
       "mandatory": true
     },
     {
-      "id": 4,
-      "name": "Phone Call",
-      "description": "Direct phone calls.",
-      "sequence": 4,
-      "mandatory": false
+      "id": "91a4",
+      "name": "Email",
+      "description": "Communicate through Email",
+      "sequence": "3",
+      "mandatory": true
     },
     {
-      "id": 5,
+      "id": "2981",
+      "name": "Phone Call",
+      "description": "We Communicate through Phone Call",
+      "sequence": "4",
+      "mandatory": true
+    },
+    {
+      "id": "7a18",
       "name": "Other",
-      "description": "",
-      "sequence": 5,
-      "mandatory": false
+      "description": "Communicate by visiting",
+      "sequence": "5",
+      "mandatory": true,
+      "otherName": "Visting"
     }
   ]
 }
