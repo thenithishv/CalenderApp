@@ -27,6 +27,22 @@
       ],
       "comments": "Google is an American multinational technology company that specializes in internet-related products and services",
       "communicationPeriodicity": "every month"
+    },
+    {
+      "id": "eae4",
+      "name": "Nithish K S",
+      "location": "Banglore",
+      "linkedinProfile": "https://www.linkedin.com/in/thenithishv/",
+      "emails": [
+        "email@e.com",
+        "email@e.com"
+      ],
+      "phoneNumbers": [
+        "1231231232",
+        "1231231231"
+      ],
+      "comments": "ada",
+      "communicationPeriodicity": "every 2 weeks"
     }
   ],
   "communication-methods": [

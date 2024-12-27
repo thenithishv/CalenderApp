@@ -1,3 +1,4 @@
+// src/admin/components/CompanyManagement.jsx
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCompanies, removeCompany } from '../adminSlice';
@@ -5,7 +6,7 @@ import CompanyForm from './CompanyForm';
 import Modal from './Modal';
 import styles from './CompanyManagement.module.css'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit,faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { faEdit, faTrashCan } from '@fortawesome/free-regular-svg-icons';
 
 const CompanyManagement = () => {
    const dispatch = useDispatch();
@@ -54,8 +55,9 @@ const CompanyManagement = () => {
                        <div className={styles.detailsGrid}>
                            <span>Location: {company.location}</span>
                            <span>LinkedIn Profile: {company.linkedinProfile}</span>
-                           <span>Emails: {company.emails}</span>
-                           <span>Phone Numbers: {company.phoneNumbers}</span>
+                           {/* Join emails and phone numbers for display */}
+                           <span>Emails: {company.emails.join(', ')}</span>  
+                           <span>Phone Numbers: {company.phoneNumbers.join(', ')}</span>  
                            <span>Comments: {company.comments}</span>
                            <span>Communication Periodicity: {company.communicationPeriodicity}</span>
                        </div>

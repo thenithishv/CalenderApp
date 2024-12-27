@@ -6,7 +6,9 @@ const AdminPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}> 
-                <h1 className={styles.heading}>Admin Dashboard</h1>
+                <h1 className={styles.appName}>Calendar Application</h1>
+                <h2 className={styles.heading}>Admin Dashboard</h2>
+                <h2 className={styles.heading}>Logged In AS </h2>
             </div>
             <div className={styles.content}>
                 <div className={styles.left}>

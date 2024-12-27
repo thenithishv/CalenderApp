@@ -1,4 +1,3 @@
-
 // src/admin/components/CompanyForm.jsx
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -68,7 +67,6 @@ const CompanyForm = ({ company, onClose }) => {
             setFormData({ ...formData, phoneNumbers: newPhones });
         }
     };
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
