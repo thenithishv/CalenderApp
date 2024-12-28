@@ -26,7 +26,8 @@
         "9879879876"
       ],
       "comments": "Google is an American multinational technology company that specializes in internet-related products and services",
-      "communicationPeriodicity": "every month"
+      "communicationPeriodicity": "every month",
+      "communications": []
     },
     {
       "id": "eae4",
@@ -42,17 +43,25 @@
         "1231231231"
       ],
       "comments": "ada",
-      "communicationPeriodicity": "every 2 weeks"
+      "communicationPeriodicity": "every 2 weeks",
+      "communications": []
+    },
+    {
+      "id": "4eb2",
+      "name": "Rahuk",
+      "location": "Abu Dhabi",
+      "linkedinProfile": "https://www.linkedin.com/in/thenithishv/",
+      "emails": [
+        "a@g.com"
+      ],
+      "phoneNumbers": [
+        "7676767654"
+      ],
+      "comments": "asa",
+      "communicationPeriodicity": "every month"
     }
   ],
   "communication-methods": [
-    {
-      "id": "2abc",
-      "name": "LinkedIn Post",
-      "description": "We Communicate through LinkedIn post",
-      "sequence": "1",
-      "mandatory": false
-    },
     {
       "id": "c46c",
       "name": "LinkedIn Message",
@@ -75,12 +84,57 @@
       "mandatory": true
     },
     {
-      "id": "7a18",
+      "id": "7225",
+      "name": "LinkedIn Post",
+      "description": "We Communicate through LinkedIn post",
+      "sequence": "1",
+      "mandatory": true
+    },
+    {
+      "id": "0cff",
       "name": "Other",
-      "description": "Communicate by visiting",
-      "sequence": "5",
+      "description": "We Communicate through Visiting",
+      "sequence": "1",
       "mandatory": true,
-      "otherName": "Visting"
+      "otherName": "Other"
     }
+  ],
+  "communications": [
+    {
+      "id": "1735379779966",
+      "companyId": "2a8d",
+      "communication": {
+        "type": "LinkedIn Message",
+        "date": "2024-12-27",
+        "notes": "Yesterday",
+        "done": false
+      }
+    },
+    {
+      "id": "1735379794906",
+      "companyId": "2a8d",
+      "communication": {
+        "type": "LinkedIn Message",
+        "date": "2024-12-28",
+        "notes": "today",
+        "done": false
+      }
+    },
+    {
+      "id": "1735379804638",
+      "companyId": "2a8d",
+      "communication": {
+        "type": "LinkedIn Message",
+        "date": "2024-12-29",
+        "notes": "tommorow",
+        "done": false
+      }
+    }
+  ],
+  "users": [
+    { "email": "nithish@gmail.com", "Name":"Nithish", "Phone":"9899899891","password": "userpass" }
+  ],
+  "admins": [
+    { "email": "nithish@gmail.com", "Name":"Nithish", "Phone":"9899899891","password": "userpass" }
   ]
 }

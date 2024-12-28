@@ -1,0 +1,53 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .toggleButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .activeButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  .submitButton {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  

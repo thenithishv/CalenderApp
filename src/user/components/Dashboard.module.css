@@ -1,0 +1,71 @@
+/* Dashboard.module.css */
+
+.dashboardContainer {
+    padding: 20px;
+    background-color: #ffffff; /* Classic white background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif; /* Classic serif font */
+}
+
+.dashboardTitle {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333333; /* Dark gray for better readability */
+}
+
+.logCommunicationButton {
+    padding: 10px 20px;
+    background-color: #007bff; /* Classic blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.logCommunicationButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.logCommunicationButton:disabled {
+    background-color: #cccccc; /* Light gray when disabled */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd; /* Light gray borders */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Light gray background for header */
+    color: #333333; /* Dark gray for text */
+}
+
+.table tr:hover {
+    background-color: #f9f9f9; /* Slightly darker gray on row hover */
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+.communicationType {
+    font-weight: bold;
+}
+
+.completed {
+    color: green; /* Green for completed communications */
+}
+
+.due {
+    color: red; /* Red for due communications */
+}
