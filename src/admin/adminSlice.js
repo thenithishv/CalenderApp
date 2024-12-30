@@ -1,4 +1,3 @@
-// src/admin/adminSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 

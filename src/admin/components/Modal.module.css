@@ -1,5 +1,3 @@
-/* src/admin/components/Modal.module.css */
-
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -29,13 +27,19 @@
     background: none; /* No background */
     border: none; /* No border */
     font-size: 24px; /* Larger font size for close button */
-    color: #333; /* Dark color for close button */
+    color: black; /* Dark color for close button */
     cursor: pointer; /* Pointer cursor on hover */
-    position: absolute; /* Positioning for close button */
-    top: 10px; /* Position at the top of the modal */
-    right: 15px; /* Position towards the right of the modal */
+    position: absolute; /* Position relative to the modal content */
+    top: 10px; /* Position at the top of the modal content */
+    right: 20px; /* Position towards the right of the modal content */
+    width: 30px; /* Explicit width for the close button */
+    line-height: 10px; /* Center the text vertically */
+    text-align: center; /* Center the text horizontally */
+    background-color: white;
+    z-index: 1100; /* Ensure it's above the modal content */
 }
 
 .closeButton:hover {
-    color: #dc3545; /* Change color on hover */
+    color: black; /* White color on hover */
+    background-color: white;
 }

@@ -1,71 +1,124 @@
-/* Dashboard.module.css */
-
-.dashboardContainer {
-    padding: 20px;
-    background-color: #ffffff; /* Classic white background */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Georgia', serif; /* Classic serif font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Container */
+.dashboardContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 10%;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Title */
 .dashboardTitle {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #333333; /* Dark gray for better readability */
+    color: #333333;
 }
 
+/* Log Communication Button */
 .logCommunicationButton {
-    padding: 10px 20px;
-    background-color: #007bff; /* Classic blue color */
-    color: white;
+    width: 17%;
+    padding: 12px 20px;
+    background-color: #28a745; /* Green color */
+    color: white; /* Text color set to white */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px; /* Space between the button and table */
 }
 
 .logCommunicationButton:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #218838; /* Darker green on hover */
 }
 
 .logCommunicationButton:disabled {
-    background-color: #cccccc; /* Light gray when disabled */
+    background-color: #cccccc; /* Disabled state (gray) */
 }
 
-.table {
+/* Companies Title */
+.companiesTitle {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+/* Table Styles */
+.companyTable {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px; /* Adds some space above the table */
 }
 
-.table th,
-.table td {
+.companyTable th,
+.companyTable td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #dddddd; /* Light gray borders */
+    border-bottom: 1px solid #dddddd;
 }
 
-.table th {
-    background-color: #f2f2f2; /* Light gray background for header */
-    color: #333333; /* Dark gray for text */
+.companyTable th {
+    background-color: #f2f2f2;
+    color: #333333;
 }
 
-.table tr:hover {
-    background-color: #f9f9f9; /* Slightly darker gray on row hover */
+.companyTable tr:hover {
+    background-color: #f9f9f9;
 }
 
-.checkbox {
+/* Checkbox Styling */
+.companyCheckbox {
     cursor: pointer;
 }
 
-.communicationType {
+/* Communication Status Styling */
+.completed {
+    color: green;
     font-weight: bold;
 }
 
-.completed {
-    color: green; /* Green for completed communications */
+.due {
+    color: red;
+    font-weight: bold;
 }
 
-.due {
-    color: red; /* Red for due communications */
+/* Mark as Completed Button */
+.markCompletedButton {
+    width: 100px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.markCompletedButton:hover {
+    background-color: #218838;
+}
+
+/* Communication Item Styling */
+.communicationItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Modal Styling */
+.communicationModal {
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }

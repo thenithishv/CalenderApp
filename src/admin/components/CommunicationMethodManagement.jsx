@@ -1,100 +1,108 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCommunicationMethods, removeCommunicationMethod } from '../adminSlice'; 
-import CommunicationMethodForm from './CommunicationMethodForm'; 
-import Modal from './Modal'; 
-import styles from './CommunicationMethodManagement.module.css'; 
+import { fetchCommunicationMethods, removeCommunicationMethod } from '../adminSlice';
+import CommunicationMethodForm from './CommunicationMethodForm';
+import Modal from './Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit,faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { faEdit, faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import styles from './CommunicationMethodManagement.module.css';
 
 const CommunicationMethodManagement = () => {
-    const dispatch = useDispatch();
-    const methods = useSelector((state) => state.admin.communicationMethods); 
-    const [selectedMethod, setSelectedMethod] = useState(null);
-    const [showModal, setShowModal] = useState(false);
-    const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState(null); 
+  const dispatch = useDispatch();
+  const methods = useSelector((state) => state.admin.communicationMethods);
+  const [selectedMethod, setSelectedMethod] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchMethods = async () => {
-            try {
-                await dispatch(fetchCommunicationMethods());
-            } catch (err) {
-                setError('Failed to fetch communication methods.');
-                console.error('Error fetching communication methods:', err);
-            } finally {
-                setLoading(false); 
-            }
-        };
-        fetchMethods();
-    }, [dispatch]);
-
-    const handleDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete this communication method?')) {
-            try {
-                await dispatch(removeCommunicationMethod(id));
-            } catch (err) {
-                setError('Failed to delete communication method.');
-                console.error('Error deleting communication method:', err);
-            }
-        }
+  useEffect(() => {
+    const fetchMethods = async () => {
+      try {
+        await dispatch(fetchCommunicationMethods());
+      } catch (err) {
+        setError('Failed to fetch communication methods.');
+        console.error('Error fetching communication methods:', err);
+      } finally {
+        setLoading(false);
+      }
     };
+    fetchMethods();
+  }, [dispatch]);
 
-    const handleEdit = (method) => {
-        setSelectedMethod(method);
-        setShowModal(true);
-    };
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this communication method?')) {
+      try {
+        await dispatch(removeCommunicationMethod(id));
+      } catch (err) {
+        setError('Failed to delete communication method.');
+        console.error('Error deleting communication method:', err);
+      }
+    }
+  };
 
-    const handleAddNew = () => {
-        setSelectedMethod(null); 
-        setShowModal(true);
-    };
+  const handleEdit = (method) => {
+    setSelectedMethod(method);
+    setShowModal(true);
+  };
 
-    const handleClose = () => {
-        setShowModal(false);
-        setSelectedMethod(null); 
-    };
+  const handleAddNew = () => {
+    setSelectedMethod(null);
+    setShowModal(true);
+  };
 
-    // Sort methods by sequence
-    const sortedMethods = [...methods].sort((a, b) => a.sequence - b.sequence);
+  const handleClose = () => {
+    setShowModal(false);
+    setSelectedMethod(null);
+  };
 
-    return (
-        <div>
-            <button onClick={handleAddNew} className={styles.addBtn}>Add Communication </button>
+  const sortedMethods = [...methods].sort((a, b) => a.sequence - b.sequence);
 
-            <Modal isOpen={showModal} onClose={handleClose}>
-                <CommunicationMethodForm method={selectedMethod} onClose={handleClose} />
-            </Modal>
+  return (
+    <div className={styles.managementContainer}>
+      <button onClick={handleAddNew} className={styles.addNewButton}>
+        Add Communication
+      </button>
 
-            {error && <p className={styles.error}>{error}</p>}
+      <Modal isOpen={showModal} onClose={handleClose}>
+        <CommunicationMethodForm method={selectedMethod} onClose={handleClose} />
+      </Modal>
 
-            {loading ? (
-                <p>Loading communication methods...</p>
-            ) : (
-                <div className={styles.cardContainer}>
-                    {sortedMethods.map((method) => (
-                        <div key={method.id} className={styles.card}>
-                            <div className={styles.methodDetails}>
-    <h3 className={styles.name}>{method.name}</h3>
-    <p>{method.description}</p>
-    <span>Sequence: {method.sequence}</span>
-    <span>Mandatory: {method.mandatory ? 'Yes' : 'No'}</span>
-    <div className={styles.buttonContainer}>
-        <button onClick={() => handleEdit(method)} className={styles.updateButton}>
-            <FontAwesomeIcon icon={faEdit} />
-        </button>
-        <button onClick={() => handleDelete(method.id)} className={styles.deleteButton}>
-            <FontAwesomeIcon icon={faTrashCan} />
-        </button>
-    </div>
-</div>
+      {error && <p className={styles.errorMessage}>{error}</p>}
 
-                        </div>
-                    ))}
-                </div>
-            )}
+      {loading ? (
+        <p className={styles.loadingMessage}>Loading communication methods...</p>
+      ) : (
+        <div className={styles.cardContainer}>
+          {sortedMethods.map((method) => (
+            <div key={method.id} className={styles.card}>
+              <h3 className={styles.methodName}>{method.name}</h3>
+              <p className={styles.methodDescription}>{method.description}</p>
+              <span className={styles.methodDetails}>
+                Sequence: {method.sequence}
+              </span>
+              <span className={styles.methodDetails}>
+                Mandatory: {method.mandatory ? 'Yes' : 'No'}
+              </span>
+              <div className={styles.actionButtons}>
+                <button
+                  onClick={() => handleEdit(method)}
+                  className={styles.editButton}
+                >
+                  <FontAwesomeIcon icon={faEdit} />
+                </button>
+                <button
+                  onClick={() => handleDelete(method.id)}
+                  className={styles.deleteButton}
+                >
+                  <FontAwesomeIcon icon={faTrashCan} />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
-export default CommunicationMethodManagement; 
+export default CommunicationMethodManagement;

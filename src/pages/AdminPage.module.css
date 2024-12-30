@@ -1,27 +1,85 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Style Heading */
-.heading{
-    text-align: center;
-}
 
-/* Style Content */
-.content{
+.container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 100vh; /* Ensure the container takes full screen height */
 }
 
-.left{
+.header {
+    display: flex;
+    justify-content: space-between; /* Space out the elements */
+    align-items: center; /* Center elements vertically */
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+}
+
+.dashboardHeading {
+    flex: 1;
+    text-align: center; /* Center the dashboard heading */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center; /* Align name and logout button in a row */
+}
+
+.loggedInAs {
+    font-size: 1rem;
+    color: gray;
+    margin-right: 20px; /* Space between name and logout button */
+}
+
+.adminLogoutButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.adminLogoutButton:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+.content {
+    display: flex;
+    flex: 1; /* Ensures content takes up remaining space */
+    padding: 20px;
+    overflow: auto; /* Ensures content doesn't overflow the container */
+}
+
+.left {
     width: 65%;
-    height: 100%;
-}
-.right{
-    display: flex;
-    flex-direction: row;
-    width: 35%;
-    height: 100%;
+    padding-right: 20px;
+    height: 100%; /* Make sure left section takes full height */
 }
 
+.right {
+    width: 35%;
+    padding-left: 20px;
+    height: 100%; /* Make sure right section takes full height */
+}
+
+/* Ensure the layout is responsive */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Stack sections vertically on small screens */
+    }
+
+    .left, .right {
+        width: 100%; /* Take full width */
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

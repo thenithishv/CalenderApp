@@ -1,0 +1,113 @@
+/* src/login/RegisterPage.module.css */
+.registerContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto; /* Add top and bottom margins */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.registerHeader {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styling */
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.inputField {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputField:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.inputField::placeholder {
+    color: #888;
+}
+
+/* Error Message */
+.errorMessage {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.submitButton,
+.cancelButton {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.submitButton {
+    background-color: #27ae60;
+    color: white;
+}
+
+.submitButton:hover {
+    background-color: #2ecc71;
+}
+
+.submitButton:active {
+    background-color: #1e8449;
+}
+
+.cancelButton {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancelButton:hover {
+    background-color: #bbb;
+}
+
+.cancelButton:active {
+    background-color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .registerContainer {
+        width: 90%;
+        padding: 15px;
+    }
+}

@@ -107,7 +107,7 @@
         "type": "LinkedIn Message",
         "date": "2024-12-27",
         "notes": "Yesterday",
-        "done": false
+        "done": true
       }
     },
     {
@@ -117,7 +117,7 @@
         "type": "LinkedIn Message",
         "date": "2024-12-28",
         "notes": "today",
-        "done": false
+        "done": true
       }
     },
     {
@@ -127,14 +127,81 @@
         "type": "LinkedIn Message",
         "date": "2024-12-29",
         "notes": "tommorow",
+        "done": true
+      }
+    },
+    {
+      "id": "1735545325564",
+      "companyId": "4eb2",
+      "communication": {
+        "type": "Email",
+        "date": "2024-12-31",
+        "notes": "tommorwo",
+        "done": false
+      }
+    },
+    {
+      "id": "1735545337106",
+      "companyId": "4eb2",
+      "communication": {
+        "type": "Email",
+        "date": "2024-12-30",
+        "notes": "today",
+        "done": true
+      }
+    },
+    {
+      "id": "1735545348398",
+      "companyId": "4eb2",
+      "communication": {
+        "type": "Email",
+        "date": "2024-12-29",
+        "notes": "yesterday",
+        "done": true
+      }
+    },
+    {
+      "id": "1735575243451",
+      "companyId": "2a8d",
+      "communication": {
+        "type": "Email",
+        "date": "2024-12-25",
+        "notes": "sqd",
+        "done": false
+      }
+    },
+    {
+      "id": "1735575264134",
+      "companyId": "2a8d",
+      "communication": {
+        "type": "Email",
+        "date": "2024-12-31",
+        "notes": "zx",
         "done": false
       }
     }
   ],
   "users": [
-    { "email": "nithish@gmail.com", "Name":"Nithish", "Phone":"9899899891","password": "userpass" }
+    {
+      "email": "nithish@gmail.com",
+      "Name": "Nithish",
+      "Phone": "9899899891",
+      "password": "userpass",
+      "id": "d071"
+    },
+    {
+      "id": "54f0",
+      "name": "Nithish",
+      "email": "ksn@gmail.com",
+      "phone": "9898989898",
+      "password": "Nithish@27"
+    }
   ],
   "admins": [
-    { "email": "nithish@gmail.com", "Name":"Nithish", "Phone":"9899899891","password": "userpass" }
+    {
+      "email": "admin@admin.com",
+      "password": "Nithish@27",
+      "id": "6f3e"
+    }
   ]
 }

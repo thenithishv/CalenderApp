@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCommunication } from '../userSlice';
+import styles from './CommunicationModal.module.css'; // Ensure you have styles for your modal
 
 const CommunicationModal = ({ selectedCompanies, onClose, communicationMethods }) => {
     const dispatch = useDispatch();
@@ -37,41 +38,48 @@ const CommunicationModal = ({ selectedCompanies, onClose, communicationMethods }
     };
 
     return (
-        <div className="modal">
-            <h2>Log Communication</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="type">Type of Communication:</label>
-                <select 
-                    id="type" 
-                    value={communicationType} 
-                    onChange={(e) => setCommunicationType(e.target.value)} 
-                    required
-                >
-                    <option value="">Select Type</option>
-                    {communicationMethods.map(method => (
-                        <option key={method.id} value={method.name}>{method.name}</option>
-                    ))}
-                </select>
+        <div className={styles.modalOverlay}>
+            <div className={styles.modal}>
+                <h2 className={styles.modalTitle}>Log Communication</h2>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                    <label htmlFor="type" className={styles.label}>Type of Communication:</label>
+                    <select 
+                        id="type" 
+                        value={communicationType} 
+                        onChange={(e) => setCommunicationType(e.target.value)} 
+                        required
+                        className={styles.input}
+                    >
+                        <option value="">Select Type</option>
+                        {communicationMethods.map(method => (
+                            <option key={method.id} value={method.name}>{method.name}</option>
+                        ))}
+                    </select>
 
-                <label htmlFor="date">Date of Communication:</label>
-                <input 
-                    type="date" 
-                    id="date" 
-                    value={communicationDate} 
-                    onChange={(e) => setCommunicationDate(e.target.value)} 
-                    required 
-                />
+                    <label htmlFor="date" className={styles.label}>Date of Communication:</label>
+                    <input 
+                        type="date" 
+                        id="date" 
+                        value={communicationDate} 
+                        onChange={(e) => setCommunicationDate(e.target.value)} 
+                        required 
+                        className={styles.input}
+                    />
 
-                <label htmlFor="notes">Notes:</label>
-                <textarea 
-                    id="notes" 
-                    value={notes} 
-                    onChange={(e) => setNotes(e.target.value)} 
-                />
+                    <label htmlFor="notes" className={styles.label}>Notes:</label>
+                    <textarea 
+                        id="notes" 
+                        value={notes} 
+                        onChange={(e) => setNotes(e.target.value)} 
+                        className={styles.textarea}
+                    />
 
-                <button type="submit">Log Communication</button>
-                <button type="button" onClick={onClose}>Cancel</button>
-            </form>
+                    <div className={styles.buttonContainer}>
+                        <button type="submit" className={styles.submitButton}>Log Communication</button>
+                        <button type="button" onClick={onClose} className={styles.cancelButton}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

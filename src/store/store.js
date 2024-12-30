@@ -1,11 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '../user/userSlice';
-import adminReducer from '../admin/adminSlice'; // Import admin reducer if needed
+import adminReducer from '../admin/adminSlice'; 
+import loginReducer from '../login/loginSlice';
 
 const store = configureStore({
     reducer: {
         user: userReducer,
-        admin: adminReducer, // Add admin reducer if you have one
+        admin: adminReducer,
+        login: loginReducer,
+
     },
 });
 

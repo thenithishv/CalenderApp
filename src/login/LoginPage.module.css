@@ -1,53 +1,145 @@
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+/* General Layout */
+.loginContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.loginHeader {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Button Container */
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.loginButton {
+  width: 45%;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.activeButton {
+  background-color: #3498db;
+  color: white;
+}
+
+.loginButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.loginButton:active {
+  background-color: #21618c;
+  transform: translateY(1px);
+}
+
+.loginButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Input Fields */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Label Styling */
+.emailLabel,
+.passwordLabel {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333; /* Dark color for better readability */
+  display: inline-block;
+  margin-bottom: 5px; /* Space between label and input */
+  text-align: left; /* Align the label text to the left */
+  width: 100%; /* Make the label take full width for proper alignment */
+  padding-left: 10px; /* Optional: add some space to the left */
+}
+
+.inputField {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputField:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Submit Button */
+.submitButton {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.submitButton:hover {
+  background-color: #2ecc71;
+  transform: translateY(-2px);
+}
+
+.submitButton:active {
+  background-color: #1e8449;
+  transform: translateY(1px);
+}
+
+/* Register Link */
+.registerLink {
+  font-size: 0.9rem;
+}
+
+.registerButton {
+  background-color: transparent;
+  color: #3498db;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.registerButton:hover {
+  color: white; /* Change the text color to white when hovered */
+  text-decoration: underline;
+}
+
+.registerButton:active {
+  color: #21618c;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .loginContainer {
+      width: 90%;
+      padding: 15px;
   }
-  
-  .toggleButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    background-color: #ccc;
-    color: black;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .activeButton {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input {
-    margin-top: 5px;
-    padding: 8px;
-    width: 100%;
-  }
-  
-  .submitButton {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 14px;
-  }
-  
+}

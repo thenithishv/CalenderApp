@@ -1,12 +1,11 @@
-// src/admin/components/CommunicationMethodForm.jsx
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { createCommunicationMethod, editCommunicationMethod } from '../adminSlice'; 
-import styles from './CommunicationMethodForm.module.css'; 
+import { createCommunicationMethod, editCommunicationMethod } from '../adminSlice';
+import styles from './CommunicationMethodForm.module.css';
 
 const CommunicationMethodForm = ({ method, onClose }) => {
     const dispatch = useDispatch();
-    
+
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -14,8 +13,8 @@ const CommunicationMethodForm = ({ method, onClose }) => {
         mandatory: false,
     });
 
-    const [errors, setErrors] = useState({}); 
-    const [isOtherSelected, setIsOtherSelected] = useState(false); 
+    const [errors, setErrors] = useState({});
+    const [isOtherSelected, setIsOtherSelected] = useState(false);
 
     const communicationMethods = [
         { id: 1, name: 'LinkedIn Post' },
@@ -34,7 +33,7 @@ const CommunicationMethodForm = ({ method, onClose }) => {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        
+
         if (name === 'name' && value === 'Other') {
             setIsOtherSelected(true);
             setFormData({ ...formData, [name]: value });
@@ -48,7 +47,7 @@ const CommunicationMethodForm = ({ method, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (!formData.name || !formData.description || !formData.sequence) {
             let newErrors = {};
             if (!formData.name) newErrors.name = 'Name is required.';
@@ -59,12 +58,12 @@ const CommunicationMethodForm = ({ method, onClose }) => {
         }
 
         if (method) {
-            dispatch(editCommunicationMethod(formData)); 
+            dispatch(editCommunicationMethod(formData));
         } else {
-            dispatch(createCommunicationMethod(formData)); 
+            dispatch(createCommunicationMethod(formData));
         }
-        
-        onClose(); 
+
+        onClose();
     };
 
     return (
@@ -72,11 +71,11 @@ const CommunicationMethodForm = ({ method, onClose }) => {
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h2>{method ? 'Update Communication Method' : 'Add Communication Method'}</h2>
                 <label htmlFor="name">Name</label>
-                <select 
-                    id="name" 
-                    name="name" 
-                    value={formData.name} 
-                    onChange={handleChange} 
+                <select
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                 >
                     <option value="">Select a communication method</option>
@@ -87,52 +86,58 @@ const CommunicationMethodForm = ({ method, onClose }) => {
                 {errors.name && <p className={styles.error}>{errors.name}</p>}
 
                 {isOtherSelected && (
-                    <input 
-                        type="text" 
-                        name="otherName" 
+                    <input
+                        type="text"
+                        name="otherName"
                         placeholder="Enter custom communication method"
-                        value={formData.name === 'Other' ? formData.otherName : ''} // Bind to otherName if needed
+                        value={formData.name === 'Other' ? formData.otherName : ''}
                         onChange={(e) => setFormData({ ...formData, otherName: e.target.value })}
                     />
                 )}
 
                 <label htmlFor="description">Description</label>
-                <input 
-                    id="description" 
-                    type="text" 
-                    name="description" 
-                    placeholder="Enter description" 
-                    value={formData.description} 
-                    onChange={handleChange} 
-                    required 
+                <input
+                    id="description"
+                    type="text"
+                    name="description"
+                    placeholder="Enter description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    required
                 />
                 {errors.description && <p className={styles.error}>{errors.description}</p>}
-                
+
                 <label htmlFor="sequence">Sequence</label>
-                <input 
-                    id="sequence" 
-                    type="number" 
-                    name="sequence" 
-                    placeholder="Enter sequence order" 
-                    value={formData.sequence} 
-                    onChange={handleChange} 
-                    required 
+                <input
+                    id="sequence"
+                    type="number"
+                    name="sequence"
+                    placeholder="Enter sequence order"
+                    value={formData.sequence}
+                    onChange={handleChange}
+                    required
                 />
                 {errors.sequence && <p className={styles.error}>{errors.sequence}</p>}
-                
+
                 <label htmlFor="mandatory">
-                    <input 
-                        id="mandatory" 
-                        type="checkbox" 
-                        name="mandatory" 
-                        checked={formData.mandatory} 
-                        onChange={handleChange} 
+                    <input
+                        id="mandatory"
+                        type="checkbox"
+                        name="mandatory"
+                        checked={formData.mandatory}
+                        onChange={handleChange}
                     />
                     Mandatory?
                 </label>
 
-                {/* Only the update button at the bottom */}
-                <button type="submit" className={styles.submitButton}>{method ? 'Update' : 'Add'} Method</button>
+                <button
+                    type="submit"
+                    className={`${styles.submitButton} ${
+                        method ? styles.updateButton : styles.addButton
+                    }`}
+                >
+                    {method ? 'Update Method' : 'Add Method'}
+                </button>
             </form>
         </div>
     );

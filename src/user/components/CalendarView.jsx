@@ -1,10 +1,9 @@
-// CalendarView Component
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCompaniesUser, fetchCommunications } from '../userSlice';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import styles from './CalendarView.module.css';
+import './Calender.css'
+import styles from './CalendarView.module.css'; // Your custom styles
 import { parseISO, isSameDay } from 'date-fns';
 
 const CalendarView = () => {
@@ -22,7 +21,6 @@ const CalendarView = () => {
 
     useEffect(() => {
         const filteredCommunications = [];
-
         if (Array.isArray(companiesUser)) {
             companiesUser.forEach(company => {
                 if (Array.isArray(communicationsData)) {
@@ -41,25 +39,22 @@ const CalendarView = () => {
                 }
             });
         }
-
         setCommunications(filteredCommunications);
     }, [companiesUser, communicationsData]);
 
     const handleDateChange = (newDate) => {
         setDate(newDate);
-
         const filteredForSelectedDate = communications.filter(comm => {
             const commDate = parseISO(comm.date + "T00:00:00");
             return isSameDay(commDate, newDate);
         });
-
         setSelectedDateCommunications(filteredForSelectedDate);
     };
 
     const tileClassName = ({ date }) => {
         return communications.some(comm => isSameDay(parseISO(comm.date + "T00:00:00"), date))
             ? styles.highlighted
-            : null;
+            : '';
     };
 
     return (
@@ -74,7 +69,7 @@ const CalendarView = () => {
             <div className={styles.communicationsContainer}>
                 <h3>Communications on {date.toDateString()}:</h3>
                 {selectedDateCommunications.length > 0 ? (
-                    <ul>
+                    <ul style={{ listStyleType: 'none', padding: 0 }}>
                         {selectedDateCommunications.map((comm) => (
                             <li key={comm.id} className={styles.communicationItem} title={comm.notes}>
                                 <strong>{comm.companyName}</strong>: {comm.type} - {comm.notes}

@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCompaniesUser, fetchCommunicationMethods, fetchCommunications, markCommunicationAsDoneAsync } from "../userSlice";
 import CommunicationModal from './CommunicationModal';
 import styles from './Dashboard.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 function Dashboard() {
     const dispatch = useDispatch();
     const companiesUser = useSelector((state) => state.user.companiesUser);
     const communications = useSelector((state) => state.user.communications);
+    const communicationMethods = useSelector((state) => state.user.communicationMethods);
 
     const [selectedCompanies, setSelectedCompanies] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
@@ -15,6 +18,7 @@ function Dashboard() {
     useEffect(() => {
         dispatch(fetchCompaniesUser());
         dispatch(fetchCommunications());
+        dispatch(fetchCommunicationMethods());
     }, [dispatch]);
 
     const handleCompanySelect = (companyId) => {
@@ -51,12 +55,19 @@ function Dashboard() {
 
     return (
         <div className={styles.dashboardContainer}>
-            <h2 className={styles.dashboardTitle}>Dashboard</h2>
-            <button className={styles.logCommunicationButton} onClick={handleLogCommunication} disabled={selectedCompanies.length === 0}>
+            <h2 className={styles.dashboardTitle}>Schedule Dashboard</h2>
+
+            {/* Log Communication Button */}
+            <button 
+                className={styles.logCommunicationButton} 
+                onClick={handleLogCommunication} 
+                disabled={selectedCompanies.length === 0}
+            >
                 Log Communication
             </button>
-            <h3>Companies:</h3>
-            <table className={styles.table}>
+
+            <h3 className={styles.companiesTitle}>Companies:</h3>
+            <table className={styles.companyTable}>
                 <thead>
                     <tr>
                         <th>Select</th>
@@ -71,7 +82,7 @@ function Dashboard() {
                             <td>
                                 <input
                                     type="checkbox"
-                                    className={styles.checkbox}
+                                    className={styles.companyCheckbox}
                                     checked={selectedCompanies.includes(company.id)}
                                     onChange={() => handleCompanySelect(company.id)}
                                 />
@@ -83,13 +94,16 @@ function Dashboard() {
                                     .sort((a, b) => new Date(b.communication.date) - new Date(a.communication.date))
                                     .slice(0, 5)
                                     .map(comm => (
-                                        <div key={comm.id}>
+                                        <div key={comm.id} className={styles.communicationItem}>
                                             <span className={comm.communication.done ? styles.completed : styles.due}>
                                                 {comm.communication.type} on {comm.communication.date} {comm.communication.done ? '(Completed)' : '(Due)'}
                                             </span>
                                             {!comm.communication.done && !isFutureDate(comm.communication.date) && (
-                                                <button onClick={() => handleMarkAsCompleted(comm.id)}>
-                                                    Mark as Completed
+                                                <button 
+                                                    onClick={() => handleMarkAsCompleted(comm.id)} 
+                                                    className={styles.markCompletedButton}
+                                                >
+                                                  Mark as <FontAwesomeIcon icon={faCheckCircle} />
                                                 </button>
                                             )}
                                         </div>
@@ -114,10 +128,12 @@ function Dashboard() {
                     ))}
                 </tbody>
             </table>
+
             {modalOpen && (
                 <CommunicationModal
                     selectedCompanies={selectedCompanies}
                     onClose={() => setModalOpen(false)}
+                    communicationMethods={communicationMethods}
                 />
             )}
         </div>

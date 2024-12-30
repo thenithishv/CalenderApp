@@ -1,4 +1,3 @@
-// src/admin/components/CompanyForm.jsx
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createCompany, editCompany } from '../adminSlice';

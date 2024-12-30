@@ -1,92 +1,109 @@
-/* src/admin/components/CompanyManagement.module.css */
-
-/* Overall container for the cards */
-.cardContainer {
+/* Overall container */
+.managementContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Add Company button */
+  .addCompanyButton {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .addCompanyButton:hover {
+    background-color: #218838;
+  }
+  
+  /* Card container layout */
+  .cardContainer {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    padding: 20px; 
-}
-
-/* Individual card styles */
-.card {
-    
-      display: flex;
-      background-color: #ffffff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      width: calc(98% - 10px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      flex-direction: column;
-      transition: transform .2s ease-in-out;
-   } /* Smooth transition effect on hover */
-
-
-.card:hover {
-   transform: translateY(-5px); /* Lift effect on hover */
-}
-
-/* Name heading style */
-.name {
-    font-size: 22px; 
-    color: #333; 
-}
-
-/* Details grid style */
-.detailsGrid {
-   display:grid ;
-   grid-template-columns :repeat(2 ,1fr) ; 
-   gap :15px ; 
-   margin-bottom :15px ; 
-}
-
-.detailsGrid span {
-   color :#555 ; 
-}
-
-/* Button styles */
-.buttonContainer {
-    display: flex; /* Use flexbox to arrange buttons side by side */
-    justify-content: flex-end; /* Align buttons to the right */
-    margin-top: auto; /* Push buttons to the bottom of the card */
-}
-
-.updateButton,
-.deleteButton {
-    background-color: #007BFF; /* Blue background for update button */
-    color: white; /* White text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Padding for buttons */
-    font-size: 14px; /* Font size for buttons */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    margin-left: 10px; /* Space between Update and Delete buttons */
-}
-
-.updateButton:hover {
-    background-color: #0056b3; /* Darker blue on hover for update button */
-}
-
-.deleteButton {
-    background-color: #dc3545; /* Red background for delete button */
-}
-
-.deleteButton:hover {
-    background-color: #c82333; /* Darker red on hover for delete button */
-}
-
-.addButton{
-   padding: 10px 20px; /* Padding for buttons */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Font size for buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-  border: none; /* No border by default */
-  background-color: #28a745; /* Green background for add button (if separate from submit) */
-  color: white; /* White text color */
-   margin-left: 75%;
-}
-
-.addButton:hover {
-   background-color: #218838; /* Darker green on hover for add button */
- }
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Space between rows */
+  }
+  
+  /* Individual card styles */
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Company name heading */
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Details grid */
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for details */
+    gap: 10px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .detailsGrid span {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  /* Action button container */
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: auto;
+  }
+  
+  /* Edit button */
+  .editCompanyButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .editCompanyButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Delete button */
+  .deleteCompanyButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deleteCompanyButton:hover {
+    background-color: #c82333;
+  }
+  

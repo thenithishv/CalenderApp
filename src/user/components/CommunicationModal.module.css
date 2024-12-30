@@ -1,45 +1,113 @@
-/* CommunicationModal.module.css */
-
-.modal {
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #ffffff; /* White background for modal */
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
-}
-
-h2 {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-select,
-input[type="date"],
-textarea {
+/* Modal Overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay with lower opacity */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #007bff; /* Classic blue */
+/* Modal Styling */
+.modal {
+    background-color: #f9f9f9; /* Lighter background for the modal */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 90%;
+    max-width: 600px;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Title */
+.modalTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #444; /* Muted dark gray */
+}
+
+/* Form Container */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555; /* Slightly muted gray for labels */
+}
+
+.input, .textarea {
+    padding: 12px;
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    background-color: #fff; /* White background for inputs */
+}
+
+.input {
+    height: 40px;
+}
+
+.textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Buttons Styling */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.submitButton, .cancelButton {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 48%; /* Button takes 48% of the space */
+    transition: background-color 0.3s ease;
+}
+
+.submitButton {
+    background-color: #4CAF50; /* Muted green */
     color: white;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.submitButton:hover {
+    background-color: #45a049; /* Slightly darker green for hover */
+}
+
+.cancelButton {
+    background-color: #dc3545; /* Soft light gray for cancel */
+    color: #ffffff; /* Muted text color */
+    border: none;
+}
+
+.cancelButton:hover {
+    background-color: #dcdcdc; /* Slightly darker gray for hover */
+}
+
+/* Modal Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

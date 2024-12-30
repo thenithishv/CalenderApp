@@ -1,175 +1,184 @@
-.communicationItem {
-   cursor: pointer;
-   padding: 5px;
-   border-bottom: 1px solid #ccc;
-}
-
-.communicationItem:hover {
-   background-color: #f0f0f0; /* Light grey background on hover */
-}
-
-.modal {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background-color: white;
-   padding: 20px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.modal h2 {
-   margin-top: 0;
-}
-
-.modal form {
+/* Global Container for the entire view */
+.container {
    display: flex;
-   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   padding: 30px;
+   border-radius: 12px;
+   margin: 20px;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
-.modal label {
-   margin-bottom: 5px;
-}
-
-.modal input,
-.modal select,
-.modal textarea {
-   margin-bottom: 15px;
-}
-
-.highlighted {
-   background-color: #ffe0b2; /* Light orange background */
-   border: 2px solid #ff9800; /* Orange border */
-   box-shadow: 0 0 5px rgba(255, 152, 0, 0.5); /* Subtle shadow effect */
-   color: #333; /* Dark text color for better contrast */
-   padding: 5px; /* Add some padding for better appearance */
-   border-radius: 0; /* Square corners */
-}
-
-.container {
-   display: flex; /* Use flexbox for layout */
-   justify-content: space-around; /* Space between calendar and communications */
-}
-
+/* Calendar Container */
 .calendarContainer {
-   width: 60%; /* Calendar takes up 60% of available space */
-    /* Allow calendar to take available space */
-   margin-right: 20px; /* Add some space between calendar and communications */
+   margin-right: 20px;
+   padding: 20px;
+   background-color: #ffffff;
+   border: none;
+   border-radius: 12px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.communicationsContainer {
-   flex: 1;
-   width: 300px; /* Fixed width for communications section */
-   padding: 10px;
-   background-color: #f9f9f9; /* Light background for better visibility */
-   border-radius: 5px; /* Rounded corners */
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
+/* Highlighted date */
 .highlighted {
-   background-color: #ffe0b2; /* Light orange background */
-   border: 2px solid #ff9800; /* Orange border */
-   box-shadow: 0 0 5px rgba(255, 152, 0, 0.5); /* Subtle shadow effect */
-   color: #333; /* Dark text color for better contrast */
+   position: relative; /* For positioning pseudo-element */
 }
 
-.container {
-   display: flex; /* Use flexbox for layout */
-   justify-content: space-around; /* Space between calendar and communications */
-   align-items: flex-start; /* Align items at the start */
-   padding: 20px; /* Add padding around the container */
-   background-color: #f4f4f4; /* Light gray background for the entire view */
-   border-radius: 8px; /* Rounded corners for the entire container */
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+/* Dot Indicator for Highlighted Dates */
+.highlighted::before {
+   content: ''; /* Empty content for dot */
+   position: absolute; /* Position relative to highlighted tile */
+   width: 8px; /* Width of the dot */
+   height: 8px; /* Height of the dot */
+   background-color: #ff9800; /* Dot color */
+   border-radius: 50%; /* Make it circular */
+   bottom: 5px; /* Position it at the bottom of the tile */
+   left: calc(50% - 4px); /* Center horizontally */
 }
 
-.calendarContainer {
-   margin-left: 100px;
-   width: 60%; /* Calendar takes up 60% of available space */
-   margin-right: 20px; /* Add some space between calendar and communications */
+/* Glow Effect for Highlighted Dates */
+.react-calendar .react-calendar__tile.highlighted {
+   box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); /* Soft glow effect */
 }
 
+/* Hover effect for calendar tiles */
+.react-calendar .react-calendar__tile:hover {
+   background-color: #f0f8ff !important; /* Light hover effect */
+   border-color: #007bff; /* Border on hover */
+   transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.highlighted-icon {
+   position: absolute;
+   top: 5px; /* Adjust as needed */
+   left: calc(50% - 10px); /* Center horizontally */
+   color: #ff9800; /* Icon color */
+}
+
+
+/* Override calendar tile styles */
+.react-calendar .react-calendar__tile {
+   background-color: #ffffff !important;
+   font-size: 18px !important;
+   color: #333 !important;
+   border-radius: 10px !important;
+   transition: background-color 0.3s ease, transform 0.2s ease !important;
+   padding: 12px !important;
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+}
+
+/* Hover effect for calendar tiles */
+.react-calendar .react-calendar__tile:hover {
+   background-color: #f0f8ff !important; /* Light hover effect */
+   border-color: #007bff; /* Border on hover */
+   transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Navigation Buttons */
+.react-calendar__navigation button {
+   background-color: #ffffff;
+   color: #007bff;
+   border: 1px solid #ddd;
+   padding: 10px 15px;
+   border-radius: 8px;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, border-color 0.3s ease; /* Added transition for border color */
+}
+
+.react-calendar__navigation button:hover {
+   background-color: #f0f8ff; /* Light hover effect for buttons */
+}
+
+/* Calendar Navigation Container */
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Month and Year Dropdown Styling */
+.react-calendar__navigation__label {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #333; 
+    margin-bottom: 15px; 
+}
+
+/* Communication Section */
 .communicationsContainer {
-   width: 40%; /* Fixed width for communications section */
-   padding: 15px;
-   background-color: #ffffff; /* White background for better visibility */
-   border-radius: 8px; /* Rounded corners */
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 30%;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-y: auto;
+    max-height: 100%; 
+    background-color:#ffffff; 
+    box-shadow :0 4px 8px rgba(0,0,0,0.1);
 }
 
-h2 {
-   font-size: 24px;
-   color: #333; /* Dark text color */
-}
-
+/* Communications List Header */
 h3 {
-   font-size: 20px;
-   color: #555; /* Slightly lighter text color */
+    font-size :22px; 
+    color :#333; 
+    font-weight :600; 
+    margin-bottom :20px; 
 }
 
-.highlighted {
-   background-color: #ffcc80; /* Softer light orange background */
-   border-radius: 4px; /* Slightly rounded corners for highlights */
-   border: 2px solid #ff9800; /* Orange border */
-   box-shadow: inset 0 0 5px rgba(255, 152, 0, 0.5); /* Inner shadow effect */
-}
-
+/* Communication Items */
 .communicationItem {
-   margin-bottom: 10px; /* Space between communication items */
-   padding: 10px; /* Padding inside each item */
-   border-radius: 4px; /* Rounded corners for items */
-   background-color: #f9f9f9; /* Light background for items */
-   transition: background-color 0.3s ease; /* Smooth transition on hover */
+    margin-bottom :15px; 
+    padding :12px 20px; 
+    border-radius :8px; 
+    background-color :#f9f9f9; 
+    transition :background-color .3s ease; 
+    border :1px solid #ddd; 
 }
 
 .communicationItem:hover {
-   background-color: #e3f2fd; /* Light blue background on hover */
+    background-color :#e3f2fd; 
+    border-color :#007bff; 
 }
 
-button {
-   padding: 10px 15px;
-   border-radius: 5px;
-   border: none;
-   background-color: #007bff; /* Bootstrap primary color */
-   color: black;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
+.communicationItem strong {
+    font-size :16px; 
+    color :#444; 
 }
 
-button:hover {
-   background-color: #0056b3; /* Darker shade on hover */
-}
-.completed {
-   color: green; /* Color for completed communications */
-}
-
-.due {
-   color: orange; /* Color for due communications */
+/* Communication Item Notes */
+.communicationItem p {
+    font-size :14px; 
+    color :#777; 
+    margin-top :8px; 
+    font-style :italic; 
 }
 
-.highlighted {
-   background-color: #ffcc80; /* Softer light orange background */
-   border-radius: 4px; /* Slightly rounded corners for highlights */
-   border: 2px solid #ff9800; /* Orange border */
-}
+/* Responsive Design */
+@media (max-width :768px) {
+     .container {  
+        flex-direction :column;  
+        padding :20px;  
+     }
 
-.completed {
-   background-color: #c8e6c9; /* Light green background for completed */
-}
+     .calendarContainer,
+     .communicationsContainer {  
+        width :100%;  
+        margin-right :0;  
+     }
 
-.overdue {
-   background-color: #ffccbc; /* Light red background for overdue */
-}
+     .react-calendar__tile {  
+        font-size :16px;  
+     }
 
-.dueToday {
-   background-color: #fff9c4; /* Light yellow background for due today */
-}
+     .react-calendar__navigation button {  
+        font-size :14px;  
+     }
 
-.highlighted {
-   border-radius: 4px; /* Slightly rounded corners for highlights */
-}
-
-.communicationItem {
-   padding: 10px; /* Padding inside each item */
-   margin-bottom: 10px; /* Space between communication items */
+     .react-calendar__navigation__label {  
+        font-size :18px;  
+     }
 }
