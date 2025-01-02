@@ -2,35 +2,42 @@
 .managementContainer {
     padding: 20px;
     background-color: #f9f9f9;
-  }
-  
-  /* Add Company button */
-  .addCompanyButton {
-    padding: 12px 25px;
-    font-size: 16px;
+}
+
+/* Header for Add Company button */
+.header {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align button to the right */
+}
+
+/* Add Company button */
+.addCompanyButton {
+    margin-bottom: 10px;
+    padding: 8px 15px; /* Reduced padding for a smaller button */
+    font-size: 14px; /* Smaller font size */
     font-weight: bold;
     color: white;
-    background-color: #28a745;
+    background-color: #2e45a3; /* Button color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  
-  .addCompanyButton:hover {
-    background-color: #218838;
-  }
-  
-  /* Card container layout */
-  .cardContainer {
+    position: sticky; /* Make the button sticky */
+    top: 20px; /* Distance from the top of the viewport */
+}
+
+.addCompanyButton:hover {
+    background-color: #3b5b8c; /* Change color on hover */
+}
+
+/* Card container layout */
+.cardContainer {
     display: flex;
     flex-direction: column; /* Stack cards vertically */
     gap: 20px; /* Space between rows */
-  }
-  
-  /* Individual card styles */
-  .card {
+}
+
+/* Individual card styles */
+.card {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
@@ -39,71 +46,70 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease-in-out;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-5px);
-  }
-  
-  /* Company name heading */
-  .name {
+}
+
+/* Company name heading */
+.name {
     font-size: 20px;
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
-  }
-  
-  /* Details grid */
-  .detailsGrid {
+}
+
+/* Details grid */
+.detailsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns for details */
     gap: 10px;
     color: #555;
     margin-bottom: 15px;
-  }
-  
-  .detailsGrid span {
+}
+
+.detailsGrid span {
     font-size: 14px;
     line-height: 1.4;
-  }
-  
-  /* Action button container */
-  .buttonContainer {
+}
+
+/* Action button container */
+.buttonContainer {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: auto;
-  }
-  
-  /* Edit button */
-  .editCompanyButton {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .editCompanyButton:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Delete button */
-  .deleteCompanyButton {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .deleteCompanyButton:hover {
-    background-color: #c82333;
-  }
-  
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between action buttons */
+}
+
+/* Edit and Delete buttons styles */
+.editCompanyButton {
+   background-color: #2e45a3; /* Default edit button color */
+   color: white; 
+   border-radius: 5px; 
+   padding: 10px; 
+   cursor:pointer ; 
+   font-size :14px ; 
+   transition :background-color .3s ease ; 
+}
+
+.deleteCompanyButton {
+   background-color: white; /* Default delete button color */ 
+   color: #2e45a3; 
+   border-radius: 5px; 
+   border :2px solid #2e45a3 ;/* Border matching text color for delete button */ 
+   padding :10px ; 
+   cursor:pointer ; 
+   font-size :14px ; 
+   transition :background-color .3s ease ; 
+}
+
+.editCompanyButton:hover {
+   background-color :white ;/* Darker shade on hover */ 
+   color: #2e45a3;
+   border :2px solid #2e45a3 ;
+}
+
+.deleteCompanyButton:hover {
+   background-color :#2e45a3 ;
+   color: white;
+}

@@ -5,11 +5,7 @@
   padding: 20px; /* Padding inside the form */
 }
 
-h2 {
-  margin-bottom: 20px; /* Space below the heading */
-  font-size: 24px; /* Font size for the heading */
-  color: #333; /* Darker color for better readability */
-}
+
 
 input,
 textarea {
@@ -34,57 +30,67 @@ textarea:focus {
 }
 
 /* General button styles */
-button {
-  padding: 10px 20px; /* Padding for buttons */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Font size for buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-  border: none; /* No border by default */
+.submitButton {
+   padding: 8px 20px; /* Padding for buttons */
+   border-radius: 5px; /* Rounded corners */
+   font-size: 14px; /* Font size for buttons */
+   cursor: pointer; /* Pointer cursor on hover */
+   border: none; /* No border by default */
+   background-color: #2e45a3; /* Button color */
+   color: white; /* Text color */
+   transition: background-color .3s ease, transform .2s ease; /* Smooth transition effect */
 }
 
 /* Specific styles for individual buttons */
-.addEmailBtn, .addPhoneBtn {
-  background-color: #007BFF; /* Blue background for add buttons */
-  color: white; /* White text color */
+.submitButton:hover {
+   background-color: #3b5b8c; /* Change background color on hover */
+   transform: translateY(-2px); /* Slight upward movement on hover */
 }
 
-.addEmailBtn:hover, .addPhoneBtn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+/* Add button styles for email and phone number addition */
+.addEmailBtn,
+.addPhoneBtn {
+   padding: 6px 10px; /* Smaller padding for add buttons */
+   border-radius: 5px;
+   font-size: 14px;
+   color: white;
+   background-color: #2e45a3; /* Button color matching Add Company button */
+   border: none;
+   cursor:pointer ;  
+   transition: background-color .3s ease, transform .2s ease; /* Transition effects */
+   width: 120px; /* Set a specific width for add buttons to reduce their size */ 
 }
 
-.removeEmailBtn, .removePhoneBtn {
-  background-color: #dc3545; /* Red background for remove buttons */
-  color: white; /* White text color */
-  margin-left: 10px ;
+.addEmailBtn:hover,
+.addPhoneBtn:hover {
+   background-color:#3b5b8c ;/* Change color on hover */  
+   transform: translateY(-2px); /* Slight upward movement on hover */
 }
 
-.removeEmailBtn:hover, .removePhoneBtn:hover {
-  background-color: #c82333; /* Darker red on hover */
+/* Remove button styles for email and phone number removal */
+.removeEmailBtn,
+.removePhoneBtn {
+   padding :6px ; /* Smaller padding for remove buttons */  
+   border-radius :5px ;  
+   font-size :14px ;  
+   background-color: white; 
+   border :2px solid #2e45a3 ;
+   color: #2e45a3; 
+   cursor:pointer ;  
+   margin-left :10px ; /* Space between input and remove button */  
+   transition :background-color .3s ease, transform .2s ease; /* Transition effects */  
 }
 
-/* Submit button styles (centered) */
-button[type="submit"] {
-  background-color: #28a745; /* Green background for submit button */
-  color: white; /* White text color */
-}
-
-button[type="submit"]:hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
-/* Add button styles (if needed) - This can be used for other add buttons if applicable */
-.addBtn {
-  background-color: #28a745; /* Green background for add button (if separate from submit) */
-  color: white; /* White text color */
-}
-
-.addBtn:hover {
-  background-color: #218838; /* Darker green on hover for add button */
+.removeEmailBtn:hover,
+.removePhoneBtn:hover {
+    background-color :#2e45a3 ;
+    color: white; 
+    transform :translateY(-2px);/* Slight upward movement on hover */  
 }
 
 /* Error message styles */
 .error {
-  color: #dc3545; /* Red color for error messages */
-  font-size: 14px; /* Font size for error messages */
-  margin-top: -10px; /* Negative margin to reduce space above error message */
+   color: #dc3545; /* Red color for error messages */
+   font-size: 14px; /* Font size for error messages */
+   margin-top: -10px; /* Negative margin to reduce space above error message */
 }

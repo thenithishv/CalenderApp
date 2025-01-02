@@ -55,9 +55,7 @@ function Dashboard() {
 
     return (
         <div className={styles.dashboardContainer}>
-            <h2 className={styles.dashboardTitle}>Schedule Dashboard</h2>
 
-            {/* Log Communication Button */}
             <button 
                 className={styles.logCommunicationButton} 
                 onClick={handleLogCommunication} 

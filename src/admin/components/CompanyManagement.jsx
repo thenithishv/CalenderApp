@@ -12,7 +12,7 @@ const CompanyManagement = () => {
   const companies = useSelector((state) => state.admin.companies);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
+  
   useEffect(() => {
     dispatch(fetchCompanies());
   }, [dispatch]);
@@ -40,9 +40,11 @@ const CompanyManagement = () => {
 
   return (
     <div className={styles.managementContainer}>
-      <button onClick={handleAddNew} className={styles.addCompanyButton}>
-        Add Company
-      </button>
+      <div className={styles.header}>
+        <button onClick={handleAddNew} className={styles.addCompanyButton}>
+          Add Company
+        </button>
+      </div>
 
       <Modal isOpen={showModal} onClose={handleClose}>
         <CompanyForm company={selectedCompany} onClose={handleClose} />

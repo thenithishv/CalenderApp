@@ -4,14 +4,21 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px #2e45a3;
   text-align: center;
 }
 
+.appTitle {
+    color: #2e45a3 ;
+    border-radius: 5px;
+    padding: 10px;
+  font-size: 1.6rem;
+}
+
 .loginHeader {
-  font-size: 2rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
   color: #333;
 }
@@ -23,10 +30,12 @@
   margin-bottom: 20px;
 }
 
-.loginButton {
+.userLoginButton,
+.adminLoginButton {
+  color: rgb(37, 35, 35);
   width: 45%;
   padding: 12px 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -34,112 +43,118 @@
   font-weight: bold;
 }
 
+.userLoginButton {
+    box-shadow: 0 4px 8px rgba(46,69,163,0.5); /* Shadow for User Login button */
+}
+
+.adminLoginButton {
+    box-shadow: 0 4px 8px rgba(46,69,163,0.5); /* Shadow for Admin Login button */
+}
+
 .activeButton {
-  background-color: #3498db;
-  color: white;
+    background-color: #3498db;
+    color: white;
 }
 
-.loginButton:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
+.userLoginButton:hover,
+.adminLoginButton:hover {
+    background-color: #2e45a3; /* Change background color on hover */
+    color: white;
+    transform: translateY(-2px); /* Slight upward movement on hover */
 }
 
-.loginButton:active {
-  background-color: #21618c;
-  transform: translateY(1px);
-}
-
-.loginButton:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.userLoginButton:active,
+.adminLoginButton:active {
+    background-color: #21618c; /* Change background color when active */
 }
 
 /* Input Fields */
 .formContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
 }
 
 /* Label Styling */
 .emailLabel,
 .passwordLabel {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333; /* Dark color for better readability */
-  display: inline-block;
-  margin-bottom: 5px; /* Space between label and input */
-  text-align: left; /* Align the label text to the left */
-  width: 100%; /* Make the label take full width for proper alignment */
-  padding-left: 10px; /* Optional: add some space to the left */
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Dark color for better readability */
+    display: inline-block;
+    margin-bottom: 5px; /* Space between label and input */
+    text-align: left; /* Align the label text to the left */
+    width: 100%; /* Make the label take full width for proper alignment */
 }
 
-.inputField {
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
+.emailInputField,
+.passwordInputField {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-.inputField:focus {
-  border-color: #3498db;
-  outline: none;
+.emailInputField:focus,
+.passwordInputField:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
 }
 
 /* Submit Button */
 .submitButton {
-  padding: 12px 20px;
-  font-size: 1.1rem;
-  color: white;
-  background-color: #27ae60;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
+    padding: 12px 20px;
+    font-size: 1 rem;
+    color: white; /* Text color for submit button */
+    background-color: #2e45a3; /* Background color for submit button */
+    border: none; /* No border for submit button */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all .3s ease; /* Smooth transition effect */
+    font-weight:bold; /* Bold text */
+    box-shadow:0 4px 8px rgba(46,69,163,0.5); /* Shadow for Submit button */
 }
 
 .submitButton:hover {
-  background-color: #2ecc71;
-  transform: translateY(-2px);
+   background-color:#082fcc; /* Change background color on hover */
+   transform:translateY(-2px); /* Slight upward movement on hover */
 }
 
-.submitButton:active {
-  background-color: #1e8449;
-  transform: translateY(1px);
+.submitButton active{
+   background-color:#21618c; /* Change background color when active */
+   transform:translateY(1px); /* Slight downward movement when active */
 }
 
 /* Register Link */
 .registerLink {
-  font-size: 0.9rem;
+   font-size:.9rem; /* Font size for register link */
 }
 
 .registerButton {
-  background-color: transparent;
-  color: #3498db;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
+   background-color:transparent; /* Transparent background for register button */
+   color:#2e45a3; /* Text color for register button */
+   border:none; /* No border for register button */
+   cursor:pointer; /* Pointer cursor on hover */
+   font-weight:bold; /* Bold text for register button */
+   transition:.3s ease; /* Smooth transition effect for hover state */
 }
 
 .registerButton:hover {
-  color: white; /* Change the text color to white when hovered */
-  text-decoration: underline;
+   color:#413e3e; /* Change text color to white when hovered over register button */
+   text-decoration:underline; /* Underline text when hovered over register button */
 }
 
-.registerButton:active {
-  color: #21618c;
+.registerButton active{
+   color:#21618c; /* Change text color when active (clicked) */
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-  .loginContainer {
-      width: 90%;
-      padding: 15px;
-  }
+@media (max-width:480px){
+   .loginContainer {
+       width:90%; /* Full width on small screens */ 
+       padding:15px; /* Reduced padding on small screens */ 
+   }
 }

@@ -34,7 +34,8 @@ const RegisterPage = ({ onClose }) => {
 
     return (
         <div className={styles.registerContainer}>
-            <h1 className={styles.registerHeader}>Register</h1>
+            <h2 className={styles.appTitle}>Calendar Tracking Application</h2>
+            <h4 className={styles.registerHeader}>Register</h4>
             <form onSubmit={handleRegister} className={styles.formContainer}>
                 <label className={styles.label}>Name:</label>
                 <input
@@ -42,7 +43,7 @@ const RegisterPage = ({ onClose }) => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className={styles.inputField}
+                    className={styles.nameInputField}
                     placeholder="Enter your full name"
                 />
 
@@ -52,7 +53,7 @@ const RegisterPage = ({ onClose }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className={styles.inputField}
+                    className={styles.emailInputField}
                     placeholder="Enter your email"
                 />
 
@@ -62,7 +63,7 @@ const RegisterPage = ({ onClose }) => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
-                    className={styles.inputField}
+                    className={styles.phoneInputField}
                     placeholder="Enter your phone number"
                 />
 
@@ -72,7 +73,7 @@ const RegisterPage = ({ onClose }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className={styles.inputField}
+                    className={styles.passwordInputField}
                     placeholder="Create a password"
                 />
 

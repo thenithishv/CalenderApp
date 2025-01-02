@@ -11,7 +11,7 @@ function HomePage() {
     const [adminLoggedIn, setAdminLoggedIn] = useState(false);
     const [adminEmail, setAdminEmail] = useState('');
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-
+    
     useEffect(() => {
         const user = localStorage.getItem('userLoggedIn');
         const admin = localStorage.getItem('adminLoggedIn');

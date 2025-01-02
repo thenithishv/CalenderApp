@@ -24,19 +24,19 @@
 }
 
 .closeButton {
-    background: none; /* No background */
-    border: none; /* No border */
-    font-size: 24px; /* Larger font size for close button */
-    color: black; /* Dark color for close button */
-    cursor: pointer; /* Pointer cursor on hover */
-    position: absolute; /* Position relative to the modal content */
-    top: 10px; /* Position at the top of the modal content */
-    right: 20px; /* Position towards the right of the modal content */
-    width: 30px; /* Explicit width for the close button */
-    line-height: 10px; /* Center the text vertically */
-    text-align: center; /* Center the text horizontally */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 68px;
+    right: 402px;
+    width: 20px;
+    line-height: 10px;
+    text-align: center;
     background-color: white;
-    z-index: 1100; /* Ensure it's above the modal content */
+    z-index: 1100;
 }
 
 .closeButton:hover {

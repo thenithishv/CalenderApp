@@ -7,13 +7,11 @@
 /* Container */
 .dashboardContainer {
     width: 100%;
-    max-width: 1200px;
-    margin-top: 10%;
-    padding: 20px;
+    margin-top: 13%;
     background-color: #f9f9f9;
+    padding: 10px;
 }
 
-/* Title */
 .dashboardTitle {
     font-size: 28px;
     margin-bottom: 20px;
@@ -22,9 +20,10 @@
 
 /* Log Communication Button */
 .logCommunicationButton {
+    margin-top: 140px;
     width: 17%;
     padding: 12px 20px;
-    background-color: #28a745; /* Green color */
+    background-color: #2e45a3; /* Green color */
     color: white; /* Text color set to white */
     border: none;
     border-radius: 5px;
@@ -32,10 +31,15 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
     margin-bottom: 20px; /* Space between the button and table */
+    
+    position: fixed; /* Make the button sticky */
+    top: 10px; /* Distance from the top of the viewport */
 }
 
 .logCommunicationButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: white; /* Darker green on hover */
+    border: 2px solid #2e45a3; /* Border on hover */
+    color: #2e45a3;
 }
 
 .logCommunicationButton:disabled {
@@ -49,76 +53,72 @@
     margin-bottom: 10px;
     color: #333333;
 }
-
 /* Table Styles */
 .companyTable {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px; /* Adds some space above the table */
-}
-
-.companyTable th,
-.companyTable td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #dddddd;
 }
 
 .companyTable th {
-    background-color: #f2f2f2;
-    color: #333333;
+    background-color: #2e45a3; /* Header background color */
+    color: white; /* Header text color */
+    padding: 12px; /* Padding for table header */
+    text-align: left; /* Align text to the left */
+}
+
+.companyTable td {
+    padding: 12px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #dddddd; /* Bottom border for cells */
 }
 
 .companyTable tr:hover {
-    background-color: #f9f9f9;
+   background-color: #f9f9f9; /* Highlight row on hover */
 }
 
 /* Checkbox Styling */
 .companyCheckbox {
-    cursor: pointer;
+   cursor: pointer; /* Pointer cursor for checkboxes */
 }
 
 /* Communication Status Styling */
 .completed {
-    color: green;
-    font-weight: bold;
+   color: green; /* Color for completed communications */
+   font-weight: bold; /* Bold text for completed communications */
 }
 
 .due {
-    color: red;
-    font-weight: bold;
+   color: red; /* Color for due communications */
+   font-weight: bold; /* Bold text for due communications */
 }
 
 /* Mark as Completed Button */
 .markCompletedButton {
-    width: 100px;
-    padding: 8px 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+   width: 100px; /* Fixed width for button */
+   padding: 8px 12px; /* Padding for button */
+   background-color: #2e45a3; /* Green color for button */
+   color: white; /* Text color for button */
+   border: none; /* No border for button */
+   border-radius: 5px; /* Rounded corners for button */
+   cursor: pointer; /* Pointer cursor on hover */
+   font-size: 14px; /* Font size for button */
+   transition: background-color 0.3s ease; /* Transition effect for hover */
 }
 
 .markCompletedButton:hover {
-    background-color: #218838;
+    background-color: white; /* Darker green on hover */
+    border: 2px solid #2e45a3; /* Border on hover */
+    color: #2e45a3;
 }
 
 /* Communication Item Styling */
 .communicationItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+   display: flex; /* Flexbox layout for communication items */
+   align-items: center; /* Center items vertically */
+   justify-content: space-between; /* Space between items horizontally */
+   margin-bottom: 10px; /* Space below each item */
 }
 
-/* Modal Styling */
-.communicationModal {
-    width: 400px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+/* Modal Styling (if needed) */
+/* Add styles here if you have a modal component that needs styling */
+

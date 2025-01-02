@@ -22,7 +22,7 @@ function LoginPage({ setCurrentPage, onUserLogin, onAdminLogin, openRegisterModa
                 dispatch(loginSuccess({ user: data[0], isAdmin }));
                 alert(`${isAdmin ? 'Admin' : 'User'} logged in successfully!`);
                 if (isAdmin) {
-                    onAdminLogin(data[0].email); // Passing the admin email
+                    onAdminLogin(data[0].email);
                 } else {
                     onUserLogin();
                 }
@@ -38,17 +38,18 @@ function LoginPage({ setCurrentPage, onUserLogin, onAdminLogin, openRegisterModa
 
     return (
         <div className={styles.loginContainer}>
-            <h1 className={styles.loginHeader}>Login</h1>
+            <h2 className={styles.appTitle}>Calendar Tracking Application</h2>
+            <h4 className={styles.loginHeader}>Login</h4>
             <div className={styles.buttonContainer}>
                 <button 
-                    className={`${styles.loginButton} ${!isAdmin ? styles.activeButton : ''}`} 
+                    className={styles.userLoginButton} 
                     onClick={() => setIsAdmin(false)} 
                     disabled={!isAdmin}
                 >
                     User Login
                 </button>
                 <button 
-                    className={`${styles.loginButton} ${isAdmin ? styles.activeButton : ''}`} 
+                    className={styles.adminLoginButton} 
                     onClick={() => setIsAdmin(true)} 
                     disabled={isAdmin}
                 >
@@ -56,30 +57,26 @@ function LoginPage({ setCurrentPage, onUserLogin, onAdminLogin, openRegisterModa
                 </button>
             </div>
             <form className={styles.formContainer} onSubmit={handleLogin}>
-                <label >
-                    <span className={styles.emailLabel}>
-                        Email:
-                    </span>
+                <label>
+                    <span className={styles.emailLabel}>Email:</span>
                     <input 
                         type="email" 
-                        className={styles.inputField}
+                        className={styles.emailInputField}
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                         required 
-                        placeholder={isAdmin ? "Admin login" : "User email"} // Dynamic placeholder
+                        placeholder={isAdmin ? "Admin login" : "User email"}
                     />
                 </label>
                 <label>
-                   <span className={styles.passwordLabel}>
-                        Password:
-                   </span>
+                   <span className={styles.passwordLabel}>Password:</span>
                     <input 
                         type="password" 
-                        className={styles.inputField}
+                        className={styles.passwordInputField}
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         required 
-                        placeholder="Password" // Fixed placeholder for password
+                        placeholder="Password"
                     />
                 </label>
                 <button type="submit" className={styles.submitButton}>Login</button>

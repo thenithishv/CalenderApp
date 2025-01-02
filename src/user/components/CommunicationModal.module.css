@@ -37,7 +37,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; /* Space between form elements */
 }
 
 .label {
@@ -49,65 +49,62 @@
 .input, .textarea {
     padding: 12px;
     border: 1px solid #ccc; /* Lighter border */
-    border-radius: 8px;
-    font-size: 14px;
-    width: 100%;
-    background-color: #fff; /* White background for inputs */
+    border-radius: 8px; /* Rounded corners for inputs */
+    font-size: 14px; /* Font size for inputs */
+    width: 100%; /* Full width for inputs */
 }
 
 .input {
-    height: 40px;
+    height: 40px; /* Height for input fields */
 }
 
 .textarea {
-    height: 150px;
-    resize: vertical;
+    height: 150px; /* Height for textarea */
+    resize: vertical; /* Allow vertical resizing */
 }
 
 /* Buttons Styling */
 .buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    display: flex; /* Flexbox layout for buttons */
+    justify-content: space-between; /* Space between buttons */
+    gap: 15px; /* Gap between buttons */
 }
 
 .submitButton, .cancelButton {
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 48%; /* Button takes 48% of the space */
-    transition: background-color 0.3s ease;
+    padding: 12px 20px; /* Padding for buttons */
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-size: 16px; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 48%; /* Button takes up to 48% of the container width */
+    transition: background-color 0.3s ease; /* Smooth transition effect on hover */
 }
 
 .submitButton {
-    background-color: #4CAF50; /* Muted green */
-    color: white;
-    border: none;
+    background-color: #2e45a3; /* Updated button color to #2e45a3 */
+    color: white; /* Text color set to white */
 }
 
 .submitButton:hover {
-    background-color: #45a049; /* Slightly darker green for hover */
+    background-color: #274b7a; /* Slightly darker shade on hover for submit button */
 }
 
 .cancelButton {
-    background-color: #dc3545; /* Soft light gray for cancel */
-    color: #ffffff; /* Muted text color */
-    border: none;
+    background-color: #2e45a3; /* Updated button color to #2e45a3 for cancel button as well */
+    color: white; /* Text color set to white */
 }
 
 .cancelButton:hover {
-    background-color: #dcdcdc; /* Slightly darker gray for hover */
+    background-color: #274b7a; /* Slightly darker shade on hover for cancel button */
 }
 
 /* Modal Fade In Animation */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+   0% {
+       opacity: 0;
+       transform: translateY(-20px);
+   }
+   100% {
+       opacity: 1;
+       transform: translateY(0);
+   }
 }

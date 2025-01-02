@@ -6,7 +6,7 @@
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Form Styling */
@@ -59,14 +59,21 @@ input:focus {
 }
 
 /* Add Button */
-.addButton {
-    background-color: #28a745;
-}
-
 .addButton:hover {
-    background-color: #218838;
+    background-color: #3b5b8c;
+    transform: translateY(-2px);
 }
 
+.addButton{
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #2e45a3;
+    color: white;
+    transition: background-color .3s ease, transform .2s ease;
+}
 /* Update Button */
 .updateButton {
     background-color: #007bff;

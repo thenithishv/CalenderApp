@@ -1,83 +1,13 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* General Layout */
 .homePage {
     display: flex;
     height: 100vh;
-    background-color: #f4f4f4;
-}
-
-/* Left Content (Header) */
-.leftContent {
-    width: 40%;
-    background-color: #34495e;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Typing Effect for First Part */
-.firstPart {
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 0; /* Start with no width */
-    animation: typingFirst 4s steps(20) forwards, blinkCursor 0.75s step-end infinite; /* Typing animation with cursor blinking */
-}
-
-/* Typing Effect for Second Part */
-.secondPart {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-
-    /* Trigger typing animation when visible */
-    animation: typingSecond 4s steps(20) forwards, blinkCursor 0.75s step-end infinite; /* Typing and blinking cursor */
-}
-
-/* Blinking Cursor */
-@keyframes blinkCursor {
-    50% {
-        border-color:black; /* Cursor disappears at 50% */
-    }
-}
-
-/* Animation for Typing the First Part */
-@keyframes typingFirst {
-    0% {
-        width: 0;
-        border-right-color: white; /* Cursor starts visible */
-    }
-    
-    100% {
-        width: 100%;
-        border-right-color: transparent; /* Cursor disappears at the end */
-    }
-}
-
-/* Animation for Typing the Second Part */
-@keyframes typingSecond {
-    0% {
-        width: 0;
-        visibility: hidden; /* Hide initially until first part is done */
-    }
-    
-    99% {
-        visibility: visible; /* Make it visible when starting to type */
-        width: 100%;
-    }
-
-    100% {
-        visibility: visible;
-        width: 100%;
-    }
+    background-color: #ffffff;
 }
 
 /* Right Content (Login Form) */
@@ -86,7 +16,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /* Modal Overlay */
@@ -113,75 +42,72 @@
     max-width: 90%;
 }
 
+/* Button Styles */
 button {
-    padding: 14px 24px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin: 10px 0;
-    transition: all 0.3s ease;
-    font-weight: 600;
+    padding: 14px 24px; /* Adjusted padding */
+    font-size: 1rem; /* Consistent font size */
+    border-radius: 8px; /* Rounded corners */
+    border: none; /* No border by default */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
 /* User Login Button */
 .userLoginButton {
-    background-color: #3498db;
-    color: white;
+   background-color: #3498db; /* User login button color */
+   color: white; /* White text for user login button */
 }
 
 .userLoginButton:hover {
-    background-color: #2980b9;
+   background-color: #2980b9; /* Darker shade on hover */
 }
 
 .userLoginButton:active {
-    background-color: #21618c;
+   background-color: #21618c; /* Darker shade when active */
 }
 
-/* Admin Login Button */
-.adminLoginButton {
-    background-color: #e74c3c;
+
+/* Submit Button (Modal) */
+.submitButton {
+   background-color: #2e45a3; /* Submit button color */
+   color: white; /* White text for submit button */
 }
 
-.adminLoginButton:hover {
-    background-color: #c0392b;
+.submitButton:hover {
+   background-color: #082fcc; /* Change background color on hover */
 }
 
-.adminLoginButton:active {
-    background-color: #943126;
+.submitButton.active{
+   background-color:#21618c; /* Change background color when active */
 }
 
 /* Register Button (Modal) */
-.registerModalButton {
-    background-color: #2ecc71;
+.registerButton {
+   background-color:none; /* Transparent background for register button */ 
+   color:#3498db; /* Text color for register button */ 
+   border:none; /* No border for register button */ 
+   cursor:pointer; /* Pointer cursor on hover */ 
+   font-weight:bold; /* Bold text for register button */ 
+   transition:.3s ease; /* Smooth transition effect for hover state */ 
 }
 
-.registerModalButton:hover {
-    background-color: #27ae60;
-}
-
-.registerModalButton:active {
-    background-color: #1e8449;
+.registerButton:hover {
+   color:#3b5b8c; /* Change text color to lighter shade when hovered over register button */ 
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .homePage {
-        flex-direction: column;
-    }
+   .homePage {
+       flex-direction: column; /* Stack layout vertically on small screens */
+   }
 
-    .leftContent {
-        width: 100%;
-        padding: 20px 0;
-    }
+   .rightContent {
+       width: 100%; /* Full width on small screens */ 
+       padding-top :20px ;/* Add some space at the top */ 
+       padding-bottom :20px ;/* Add some space at the bottom */ 
+   }
 
-    .rightContent {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .applicationName {
-        font-size: 1.8rem;
-    }
+   .modal {
+       width :90%;/* Make modal responsive */  
+       max-width :400px ;/* Limit maximum width of modal */  
+   }
 }

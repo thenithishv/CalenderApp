@@ -8,7 +8,7 @@ const App = () => {
         <Router basename="/CalenderApp"> {/* Set the base URL for routing */}
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/admin" element={<AdminPage />} /> {/* Add other routes here */}
+                <Route path="/admin" element={<AdminPage />} />
                 <Route path="/user" element={<UserPage />} />
             </Routes>
         </Router>

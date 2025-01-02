@@ -5,8 +5,7 @@
    align-items: flex-start;
    padding: 30px;
    border-radius: 12px;
-   margin: 20px;
-   max-width: 1200px;
+;
    margin-left: auto;
    margin-right: auto;
 }
@@ -18,7 +17,7 @@
    background-color: #ffffff;
    border: none;
    border-radius: 12px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 4px 8px #2e45a3;
 }
 
 /* Highlighted date */
@@ -81,7 +80,7 @@
 /* Navigation Buttons */
 .react-calendar__navigation button {
    background-color: #ffffff;
-   color: #007bff;
+   color: #2e45a3;
    border: 1px solid #ddd;
    padding: 10px 15px;
    border-radius: 8px;
@@ -118,7 +117,7 @@
     overflow-y: auto;
     max-height: 100%; 
     background-color:#ffffff; 
-    box-shadow :0 4px 8px rgba(0,0,0,0.1);
+    box-shadow :0 4px 8px #2e45a3;
 }
 
 /* Communications List Header */

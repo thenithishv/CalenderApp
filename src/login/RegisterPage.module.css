@@ -1,18 +1,27 @@
 /* src/login/RegisterPage.module.css */
 .registerContainer {
-    width: 100%;
+    /* width: 100%; */
     max-width: 400px;
-    margin: 50px auto; /* Add top and bottom margins */
+    /* margin: 50px auto; */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /* max-height: calc(100vh - 100px); */
+    overflow-y: auto;
 }
 
+.appTitle {
+    color: white;
+    background-color: #2e45a3;
+    border-radius: 5px;
+    padding: 10px;
+  font-size: 1.3rem;
+}
 
 .registerHeader {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 20px;
     color: #333;
 }
@@ -21,8 +30,7 @@
 .formContainer {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 15px; /* Space between form elements */
 }
 
 .label {
@@ -30,84 +38,96 @@
     font-weight: bold;
     color: #333;
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Space below label */
 }
 
 /* Input Fields */
-.inputField {
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
+.nameInputField,
+.emailInputField,
+.phoneInputField,
+.passwordInputField {
+    padding: 12px; /* Padding inside input fields */
+    font-size: 1rem; /* Font size for input text */
+    border-radius: 8px; /* Rounded corners for input fields */
+    border: 1px solid #ddd; /* Light gray border */
+    margin-bottom: 10px; /* Space below each input field */
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.inputField:focus {
-    border-color: #3498db;
-    outline: none;
+.nameInputField:focus,
+.emailInputField:focus,
+.phoneInputField:focus,
+.passwordInputField:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
 }
 
-.inputField::placeholder {
-    color: #888;
+.nameInputField::placeholder,
+.emailInputField::placeholder,
+.phoneInputField::placeholder,
+.passwordInputField::placeholder {
+    color: #888; /* Placeholder color */
 }
 
 /* Error Message */
 .errorMessage {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 10px;
+    color: red; /* Red color for error messages */
+    font-size: 0.9rem; /* Font size for error messages */
+    margin-top: 10px; /* Space above error message */
 }
 
 /* Button Styling */
 .buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    display: flex; 
+    justify-content: space-between; /* Space between buttons */
 }
 
 .submitButton,
 .cancelButton {
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
+    padding: 8px 12px; /* Padding for buttons */
+    font-size: 0.9rem; /* Font size for buttons */
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition effect for hover/active states */
 }
 
+/* Submit Button Styles */
 .submitButton {
-    background-color: #27ae60;
-    color: white;
+    background-color: #2e45a3; /* Background color for submit button */
+    color: white; /* Text color for submit button */
 }
 
 .submitButton:hover {
-    background-color: #2ecc71;
+   background-color: #3b5b8c; /* Lighter shade on hover for submit button */
 }
 
 .submitButton:active {
-    background-color: #1e8449;
+   background-color: #253d67; /* Darker shade when active for submit button */
 }
 
+/* Cancel Button Styles */
 .cancelButton {
-    background-color: #ccc;
-    color: #333;
+   background-color: white; /* White background for cancel button */
+   color: #2e45a3; /* Text color for cancel button */
+   border: 2px solid #2e45a3; /* Border matching text color for cancel button */
+   margin-left: 10px; /* Add gap between buttons */ 
 }
 
 .cancelButton:hover {
-    background-color: #bbb;
+   background-color: #2e45a3; /* Background color on hover for cancel button */
+   color:white; /* Change text to white on hover for cancel button*/
 }
 
-.cancelButton:active {
-    background-color: #999;
+.cancelButton.active {
+   background-color:#253d67; /* Darker shade when active for cancel button*/
+   color:white; /* Keep text white when active*/
 }
 
-/* Responsive Design */
+/* Responsive Design Adjustments */
 @media (max-width: 480px) {
-    .registerContainer {
-        width: 90%;
-        padding: 15px;
-    }
+   .registerContainer {
+       width: 90%; /* Full width on small screens */ 
+       padding: 15px; /* Reduced padding on small screens */ 
+   }
 }

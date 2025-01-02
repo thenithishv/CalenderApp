@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { createCompany, editCompany } from '../adminSlice';
 import { validateCompanyForm } from '../../utils/formValidations'; // Import the validation utility
 import styles from './CompanyForm.module.css'; // Import your CSS module
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const CompanyForm = ({ company, onClose }) => {
     const dispatch = useDispatch();
@@ -150,12 +153,12 @@ const CompanyForm = ({ company, onClose }) => {
                         required={index === 0} // First email is required
                     />
                     {index > 0 && (
-                        <button type="button" className={styles.removeEmailBtn} onClick={() => handleRemoveEmail(index)}>Remove</button>
+                        <button type="button" className={styles.removeEmailBtn} onClick={() => handleRemoveEmail(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
                     )}
                     {errors.email && <p className={styles.error}>{errors.email}</p>}
                 </div>
             ))}
-            <button type="button" className={styles.addEmailBtn} onClick={handleAddEmail}>Add Email</button>
+            <button type="button" className={styles.addEmailBtn} onClick={handleAddEmail}><FontAwesomeIcon icon={faEnvelope} /> Add</button>
 
             <label>Phone Numbers</label>
             {formData.phoneNumbers.map((phone, index) => (
@@ -168,12 +171,12 @@ const CompanyForm = ({ company, onClose }) => {
                         required={index === 0} // First phone number is required
                     />
                     {index > 0 && (
-                        <button type="button" className={styles.removePhoneBtn} onClick={() => handleRemovePhoneNumber(index)}>Remove</button>
+                        <button type="button" className={styles.removePhoneBtn} onClick={() => handleRemovePhoneNumber(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
                     )}
                     {errors.phone && <p className={styles.error}>{errors.phone}</p>}
                 </div>
             ))}
-            <button type="button" className={styles.addPhoneBtn} onClick={handleAddPhoneNumber}>Add Phone Number</button>
+            <button type="button" className={styles.addPhoneBtn} onClick={handleAddPhoneNumber}><FontAwesomeIcon icon={faPhone} /> Add</button>
 
             <label htmlFor="comments">Comments</label>
             <textarea 
@@ -184,25 +187,25 @@ const CompanyForm = ({ company, onClose }) => {
                 onChange={handleChange}
             ></textarea>
 
-            <label htmlFor="communicationPeriodicity">Communication Periodicity</label>
-            <input
-                id="communicationPeriodicity"
-                type="text"
-                name="communicationPeriodicity"
-                placeholder="e.g., every 2 weeks"
-                value={formData.communicationPeriodicity}
-                onChange={handleChange}
-            />
-            {errors.communicationPeriodicity && (
-              <p className={styles.error}>{errors.communicationPeriodicity}</p>
-            )}
+           <label htmlFor="communicationPeriodicity">Communication Periodicity</label>
+           <input
+               id="communicationPeriodicity"
+               type="text"
+               name="communicationPeriodicity"
+               placeholder="e.g., every 2 weeks"
+               value={formData.communicationPeriodicity}
+               onChange={handleChange}
+           />
+           {errors.communicationPeriodicity && (
+             <p className={styles.error}>{errors.communicationPeriodicity}</p>
+           )}
             
-            {/* Centering the submit button */}
-            <div className={styles.buttonContainer}>
-                <button type="submit">{company ? 'Update' : 'Add'} Company</button>
-            </div>
-        </form>
-    );
+           {/* Centering the submit button */}
+           <div className={styles.buttonContainer}>
+               <button type="submit" className={styles.submitButton}>{company ? 'Update' : 'Add'} Company</button>
+           </div>
+       </form>
+   );
 };
 
 export default CompanyForm;

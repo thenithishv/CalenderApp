@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// Initial state for the user slice
 const initialState = {
     companiesUser: [],
     communicationMethods: [],
@@ -17,7 +18,7 @@ export const fetchCompaniesUser = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(`${BASE_URL}/companies`);
-            return response.data;
+            return response.data; // Return fetched data
         } catch (error) {
             return rejectWithValue(error.response?.data?.message || error.message);
         }
@@ -30,7 +31,7 @@ export const fetchCommunicationMethods = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(`${BASE_URL}/communication-methods`);
-            return response.data;
+            return response.data; // Return fetched data
         } catch (error) {
             return rejectWithValue(error.response?.data?.message || error.message);
         }
@@ -43,7 +44,7 @@ export const fetchCommunications = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(`${BASE_URL}/communications`);
-            return response.data;
+            return response.data; // Return fetched data
         } catch (error) {
             return rejectWithValue(error.response?.data?.message || error.message);
         }
@@ -60,6 +61,7 @@ export const markCommunicationAsDoneAsync = createAsyncThunk(
 
             if (!communicationToUpdate) throw new Error('Communication not found');
 
+            // Create updated communication object
             const updatedCommunication = {
                 ...communicationToUpdate,
                 communication: {
@@ -68,6 +70,7 @@ export const markCommunicationAsDoneAsync = createAsyncThunk(
                 },
             };
 
+            // Send update request to server
             await axios.put(`${BASE_URL}/communications/${commId}`, updatedCommunication);
             return updatedCommunication; // Return the updated communication
         } catch (error) {
@@ -76,6 +79,7 @@ export const markCommunicationAsDoneAsync = createAsyncThunk(
     }
 );
 
+// Create user slice
 const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -98,11 +102,11 @@ const userSlice = createSlice({
             })
             .addCase(fetchCompaniesUser.fulfilled, (state, action) => {
                 state.loading = false;
-                state.companiesUser = action.payload;
+                state.companiesUser = action.payload; // Update companiesUser with fetched data
             })
             .addCase(fetchCompaniesUser.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.error = action.payload; // Set error message on failure
             })
             .addCase(fetchCommunicationMethods.pending, (state) => {
                 state.loading = true;
@@ -110,11 +114,11 @@ const userSlice = createSlice({
             })
             .addCase(fetchCommunicationMethods.fulfilled, (state, action) => {
                 state.loading = false;
-                state.communicationMethods = action.payload;
+                state.communicationMethods = action.payload; // Update communicationMethods with fetched data
             })
             .addCase(fetchCommunicationMethods.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.error = action.payload; // Set error message on failure
             })
             .addCase(fetchCommunications.pending, (state) => {
                 state.loading = true;
@@ -122,11 +126,11 @@ const userSlice = createSlice({
             })
             .addCase(fetchCommunications.fulfilled, (state, action) => {
                 state.loading = false;
-                state.communications = action.payload;
+                state.communications = action.payload; // Update communications with fetched data
             })
             .addCase(fetchCommunications.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.error = action.payload; // Set error message on failure
             })
             .addCase(markCommunicationAsDoneAsync.fulfilled, (state, action) => {
                 const index = state.communications.findIndex(comm => comm.id === action.payload.id);
@@ -135,7 +139,7 @@ const userSlice = createSlice({
                 }
             })
             .addCase(markCommunicationAsDoneAsync.rejected, (state, action) => {
-                state.error = action.payload;
+                state.error = action.payload; // Set error message on failure
                 console.error('Error marking communication as done:', action.payload);
             });
     },
@@ -144,5 +148,6 @@ const userSlice = createSlice({
 // Export a selector to get all communications
 export const selectAllCommunications = (state) => state.user.communications;
 
-export const { addCommunication } = userSlice.actions;
-export default userSlice.reducer;
+export const { addCommunication } = userSlice.actions; // Exporting the addCommunication reducer action
+
+export default userSlice.reducer; // Exporting the user reducer
