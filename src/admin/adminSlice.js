@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState = {
     companies: [],
     communicationMethods: [],
-    error: null,
+    error: null, // Added for error handling
 };
 
 const adminSlice = createSlice({
@@ -41,7 +41,7 @@ const adminSlice = createSlice({
         deleteCommunicationMethod(state, action) {
             state.communicationMethods = state.communicationMethods.filter(method => method.id !== action.payload);
         },
-        setError(state, action) {
+        setError(state, action) { // New reducer to handle errors
             state.error = action.payload;
         },
     },
@@ -61,16 +61,16 @@ export const {
 } = adminSlice.actions;
 
 // Define the base URL for API requests
-const BASE_URL = 'https://json-server-main-fc76.onrender.com/';
+const BASE_URL = 'https://json-server-main-fc76.onrender.com';
 
-// Helper function to handle API calls
+// Helper function for API calls
 const handleApiCall = async (dispatch, apiCall, successAction) => {
     try {
         const response = await apiCall();
         dispatch(successAction(response.data));
     } catch (error) {
-        console.error('API call error:', error);
-        dispatch(setError(error.response?.data?.message || error.message));
+        console.error('API call error:', error); // Log full error for debugging
+        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
     }
 };
 
