@@ -9,7 +9,7 @@ const initialState = {
     error: null,
 };
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://json-server-main-fc76.onrender.com/';
 
 // Fetch Companies
 export const fetchCompaniesUser = createAsyncThunk(

@@ -61,7 +61,7 @@ export const {
 } = adminSlice.actions;
 
 // Define the base URL for API requests
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://json-server-main-fc76.onrender.com/';
 
 // Fetch companies from API
 export const fetchCompanies = () => async (dispatch) => {

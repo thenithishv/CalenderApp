@@ -15,7 +15,7 @@ function LoginPage({ setCurrentPage, onUserLogin, onAdminLogin, openRegisterModa
 
         const endpoint = isAdmin ? 'admins' : 'users';
         try {
-            const response = await fetch(`http://localhost:3000/${endpoint}?email=${email}&password=${password}`);
+            const response = await fetch(`https://json-server-main-fc76.onrender.com/${endpoint}?email=${email}&password=${password}`);
             const data = await response.json();
 
             if (data.length > 0) {
