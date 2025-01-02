@@ -4,7 +4,8 @@ import axios from 'axios';
 const initialState = {
     companies: [],
     communicationMethods: [],
-    error: null, // Added for error handling
+    error: null,
+    loading: false, // Added loading state
 };
 
 const adminSlice = createSlice({
@@ -41,8 +42,11 @@ const adminSlice = createSlice({
         deleteCommunicationMethod(state, action) {
             state.communicationMethods = state.communicationMethods.filter(method => method.id !== action.payload);
         },
-        setError(state, action) { // New reducer to handle errors
+        setError(state, action) {
             state.error = action.payload;
+        },
+        setLoading(state, action) { // Added loading reducer
+            state.loading = action.payload;
         },
     },
 });
@@ -57,7 +61,8 @@ export const {
     addCommunicationMethod,
     updateCommunicationMethod,
     deleteCommunicationMethod,
-    setError 
+    setError,
+    setLoading 
 } = adminSlice.actions;
 
 // Define the base URL for API requests
@@ -66,11 +71,19 @@ const BASE_URL = 'https://json-server-main-fc76.onrender.com';
 // Helper function for API calls
 const handleApiCall = async (dispatch, apiCall, successAction) => {
     try {
+        dispatch(setLoading(true)); // Set loading to true before API call
+        dispatch(setError(null)); // Clear previous errors
         const response = await apiCall();
         dispatch(successAction(response.data));
     } catch (error) {
-        console.error('API call error:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
+        console.error('API call error:', {
+            message: error.message,
+            response: error.response,
+            stack: error.stack,
+        });
+        dispatch(setError(error.response?.data?.message || error.message));
+    } finally {
+        dispatch(setLoading(false)); // Set loading to false after API call
     }
 };
 
@@ -91,7 +104,7 @@ export const editCompany = (company) => async (dispatch) => {
 
 // Remove a company
 export const removeCompany = (id) => async (dispatch) => {
-    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/companies/${id}`), deleteCompany.bind(null, id));
+    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/companies/${id}`), () => deleteCompany(id));
 };
 
 // Fetch communication methods from API
@@ -111,7 +124,7 @@ export const editCommunicationMethod = (method) => async (dispatch) => {
 
 // Remove a communication method
 export const removeCommunicationMethod = (id) => async (dispatch) => {
-    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/communication-methods/${id}`), deleteCommunicationMethod.bind(null, id));
+    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/communication-methods/${id}`), () => deleteCommunicationMethod(id));
 };
 
 export default adminSlice.reducer;
