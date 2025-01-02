@@ -7,7 +7,7 @@
 /* Container */
 .dashboardContainer {
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 82vh;
     background-color: #f9f9f9;
     padding: 10px;
 }
@@ -118,7 +118,4 @@
    justify-content: space-between; /* Space between items horizontally */
    margin-bottom: 10px; /* Space below each item */
 }
-
-/* Modal Styling (if needed) */
-/* Add styles here if you have a modal component that needs styling */
 
