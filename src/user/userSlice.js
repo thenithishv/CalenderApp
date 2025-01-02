@@ -9,54 +9,70 @@ const initialState = {
     error: null,
 };
 
-const BASE_URL = 'https://json-server-main-fc76.onrender.com/';
+const BASE_URL = 'https://json-server-main-fc76.onrender.com';
 
 // Fetch Companies
 export const fetchCompaniesUser = createAsyncThunk(
     'user/fetchCompaniesUser',
-    async () => {
-        const response = await axios.get(`${BASE_URL}/companies`);
-        return response.data;
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/companies`);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
     }
 );
 
 // Fetch Communication Methods
 export const fetchCommunicationMethods = createAsyncThunk(
     'user/fetchCommunicationMethods',
-    async () => {
-        const response = await axios.get(`${BASE_URL}/communication-methods`);
-        return response.data;
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/communication-methods`);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
     }
 );
 
 // Fetch Communications
 export const fetchCommunications = createAsyncThunk(
     'user/fetchCommunications',
-    async () => {
-        const response = await axios.get(`${BASE_URL}/communications`);
-        return response.data;
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/communications`);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
     }
 );
 
 // Async thunk to mark communication as done
 export const markCommunicationAsDoneAsync = createAsyncThunk(
     'user/markCommunicationAsDone',
-    async (commId, { getState }) => {
-        const state = getState();
-        const communicationToUpdate = state.user.communications.find(comm => comm.id === commId);
-        
-        if (!communicationToUpdate) throw new Error('Communication not found');
+    async (commId, { getState, rejectWithValue }) => {
+        try {
+            const state = getState();
+            const communicationToUpdate = state.user.communications.find(comm => comm.id === commId);
 
-        const updatedCommunication = {
-            ...communicationToUpdate,
-            communication: {
-                ...communicationToUpdate.communication,
-                done: true,
-            },
-        };
+            if (!communicationToUpdate) throw new Error('Communication not found');
 
-        await axios.put(`${BASE_URL}/communications/${commId}`, updatedCommunication);
-        return updatedCommunication; // Return the updated communication
+            const updatedCommunication = {
+                ...communicationToUpdate,
+                communication: {
+                    ...communicationToUpdate.communication,
+                    done: true,
+                },
+            };
+
+            await axios.put(`${BASE_URL}/communications/${commId}`, updatedCommunication);
+            return updatedCommunication; // Return the updated communication
+        } catch (error) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
     }
 );
 
@@ -76,23 +92,41 @@ const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(fetchCompaniesUser.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
             .addCase(fetchCompaniesUser.fulfilled, (state, action) => {
+                state.loading = false;
                 state.companiesUser = action.payload;
             })
+            .addCase(fetchCompaniesUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+            .addCase(fetchCommunicationMethods.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
             .addCase(fetchCommunicationMethods.fulfilled, (state, action) => {
+                state.loading = false;
                 state.communicationMethods = action.payload;
             })
-            .addCase(fetchCommunications.fulfilled, (state, action) => {
-                state.communications = action.payload; // Store fetched communications
-            })
-            .addCase(fetchCompaniesUser.rejected, (state, action) => {
-                state.error = action.error.message;
-            })
             .addCase(fetchCommunicationMethods.rejected, (state, action) => {
-                state.error = action.error.message;
+                state.loading = false;
+                state.error = action.payload;
+            })
+            .addCase(fetchCommunications.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchCommunications.fulfilled, (state, action) => {
+                state.loading = false;
+                state.communications = action.payload;
             })
             .addCase(fetchCommunications.rejected, (state, action) => {
-                state.error = action.error.message;
+                state.loading = false;
+                state.error = action.payload;
             })
             .addCase(markCommunicationAsDoneAsync.fulfilled, (state, action) => {
                 const index = state.communications.findIndex(comm => comm.id === action.payload.id);
@@ -101,7 +135,8 @@ const userSlice = createSlice({
                 }
             })
             .addCase(markCommunicationAsDoneAsync.rejected, (state, action) => {
-                console.error('Error marking communication as done:', action.error.message);
+                state.error = action.payload;
+                console.error('Error marking communication as done:', action.payload);
             });
     },
 });
