@@ -59,6 +59,20 @@
       ],
       "comments": "asa",
       "communicationPeriodicity": "every month"
+    },
+    {
+      "id": "3017",
+      "name": "ENTNT",
+      "location": "India",
+      "linkedinProfile": "https://www.linkedin.com/in/thenithishv/",
+      "emails": [
+        "email@email.com"
+      ],
+      "phoneNumbers": [
+        "1231231234"
+      ],
+      "comments": "hello",
+      "communicationPeriodicity": "every 2 weeks"
     }
   ],
   "communication-methods": [
@@ -97,6 +111,13 @@
       "sequence": "1",
       "mandatory": true,
       "otherName": "Other"
+    },
+    {
+      "id": "9067",
+      "name": "Phone Call",
+      "description": "phone 2",
+      "sequence": "3",
+      "mandatory": true
     }
   ],
   "communications": [
@@ -179,6 +200,16 @@
         "notes": "zx",
         "done": false
       }
+    },
+    {
+      "id": "1735586941770",
+      "companyId": "3017",
+      "communication": {
+        "type": "Phone Call",
+        "date": "2024-12-18",
+        "notes": "z",
+        "done": false
+      }
     }
   ],
   "users": [
@@ -194,6 +225,13 @@
       "name": "Nithish",
       "email": "ksn@gmail.com",
       "phone": "9898989898",
+      "password": "Nithish@27"
+    },
+    {
+      "id": "c7c0",
+      "name": "Nithish",
+      "email": "nithish@nithish.com",
+      "phone": "7897897899",
       "password": "Nithish@27"
     }
   ],
