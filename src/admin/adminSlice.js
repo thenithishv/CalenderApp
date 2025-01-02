@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState = {
     companies: [],
     communicationMethods: [],
-    error: null, // Added for error handling
+    error: null,
 };
 
 const adminSlice = createSlice({
@@ -41,7 +41,7 @@ const adminSlice = createSlice({
         deleteCommunicationMethod(state, action) {
             state.communicationMethods = state.communicationMethods.filter(method => method.id !== action.payload);
         },
-        setError(state, action) { // New reducer to handle errors
+        setError(state, action) {
             state.error = action.payload;
         },
     },
@@ -63,92 +63,55 @@ export const {
 // Define the base URL for API requests
 const BASE_URL = 'https://json-server-main-fc76.onrender.com/';
 
+// Helper function to handle API calls
+const handleApiCall = async (dispatch, apiCall, successAction) => {
+    try {
+        const response = await apiCall();
+        dispatch(successAction(response.data));
+    } catch (error) {
+        console.error('API call error:', error);
+        dispatch(setError(error.response?.data?.message || error.message));
+    }
+};
+
 // Fetch companies from API
 export const fetchCompanies = () => async (dispatch) => {
-    try {
-        const response = await axios.get(`${BASE_URL}/companies`);
-        dispatch(setCompanies(response.data));
-    } catch (error) {
-        console.error('Error fetching companies:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.get(`${BASE_URL}/companies`), setCompanies);
 };
 
 // Create a new company
 export const createCompany = (company) => async (dispatch) => {
-    try {
-        const response = await axios.post(`${BASE_URL}/companies`, company);
-        dispatch(addCompany(response.data));
-    } catch (error) {
-        console.error('Error creating company:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.post(`${BASE_URL}/companies`, company), addCompany);
 };
 
 // Edit an existing company
 export const editCompany = (company) => async (dispatch) => {
-    try {
-        const response = await axios.put(`${BASE_URL}/companies/${company.id}`, company);
-        dispatch(updateCompany(response.data));
-    } catch (error) {
-        console.error('Error editing company:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.put(`${BASE_URL}/companies/${company.id}`, company), updateCompany);
 };
 
 // Remove a company
 export const removeCompany = (id) => async (dispatch) => {
-    try {
-        await axios.delete(`${BASE_URL}/companies/${id}`);
-        dispatch(deleteCompany(id));
-    } catch (error) {
-        console.error('Error deleting company:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/companies/${id}`), deleteCompany.bind(null, id));
 };
 
 // Fetch communication methods from API
 export const fetchCommunicationMethods = () => async (dispatch) => {
-    try {
-        const response = await axios.get(`${BASE_URL}/communication-methods`); // Adjust the URL as needed
-        dispatch(setCommunicationMethods(response.data));
-    } catch (error) {
-        console.error('Error fetching communication methods:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.get(`${BASE_URL}/communication-methods`), setCommunicationMethods);
 };
 
 // Create a new communication method
 export const createCommunicationMethod = (method) => async (dispatch) => {
-    try {
-        const response = await axios.post(`${BASE_URL}/communication-methods`, method); // Adjust the URL as needed
-        dispatch(addCommunicationMethod(response.data));
-    } catch (error) {
-        console.error('Error creating communication method:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.post(`${BASE_URL}/communication-methods`, method), addCommunicationMethod);
 };
 
 // Edit an existing communication method
 export const editCommunicationMethod = (method) => async (dispatch) => {
-    try {
-        const response = await axios.put(`${BASE_URL}/communication-methods/${method.id}`, method); // Adjust the URL as needed
-        dispatch(updateCommunicationMethod(response.data));
-    } catch (error) {
-        console.error('Error editing communication method:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.put(`${BASE_URL}/communication-methods/${method.id}`, method), updateCommunicationMethod);
 };
 
 // Remove a communication method
 export const removeCommunicationMethod = (id) => async (dispatch) => {
-    try {
-        await axios.delete(`${BASE_URL}/communication-methods/${id}`); // Adjust the URL as needed
-        dispatch(deleteCommunicationMethod(id));
-    } catch (error) {
-        console.error('Error deleting communication method:', error); // Log full error for debugging
-        dispatch(setError(error.response?.data?.message || error.message)); // Dispatch error message on failure
-    }
+    await handleApiCall(dispatch, () => axios.delete(`${BASE_URL}/communication-methods/${id}`), deleteCommunicationMethod.bind(null, id));
 };
 
 export default adminSlice.reducer;
