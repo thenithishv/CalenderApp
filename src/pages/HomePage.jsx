@@ -10,6 +10,7 @@ function HomePage() {
     const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [adminLoggedIn, setAdminLoggedIn] = useState(false);
     const [adminEmail, setAdminEmail] = useState('');
+    const [userEmail, setUserEmail] = useState('');
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     
     useEffect(() => {
@@ -27,12 +28,6 @@ function HomePage() {
         }
     }, []);
 
-    const handleUserLogin = () => {
-        setUserLoggedIn(true);
-        localStorage.setItem('userLoggedIn', 'true');
-        setCurrentPage('user'); // Immediately route to UserPage
-    };
-
     const handleAdminLogin = (email) => {
         setAdminEmail(email);
         setAdminLoggedIn(true);
@@ -41,11 +36,20 @@ function HomePage() {
         setCurrentPage('admin'); // Immediately route to AdminPage
     };
 
+    const handleUserLogin = (email) => {
+        setUserEmail(email);
+        setUserLoggedIn(true);
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('userEmail', email);
+        setCurrentPage('user'); // Immediately route to UserPage
+    };
+
     const handleLogout = () => {
         setUserLoggedIn(false);
         setAdminLoggedIn(false);
         setAdminEmail('');
         localStorage.removeItem('userLoggedIn');
+        localStorage.removeItem('userEmail');
         localStorage.removeItem('adminLoggedIn');
         localStorage.removeItem('adminEmail');
         setCurrentPage('login'); // Redirect to login page on logout
@@ -82,7 +86,11 @@ function HomePage() {
                     </div>
                 )}
 
-                {currentPage === 'user' && <UserPage onLogout={handleLogout} />}
+                {currentPage === 'user' && <UserPage 
+                    onLogout={handleLogout}
+                    userName={userEmail} // Pass userEmail as userName
+                />}
+                
                 {currentPage === 'admin' && 
                     <AdminPage 
                         onLogout={handleLogout} 

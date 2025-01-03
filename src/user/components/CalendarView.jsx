@@ -56,7 +56,7 @@ const CalendarView = () => {
             ? styles.highlighted
             : '';
     };
-
+    
     return (
         <div className={styles.container}>
             <div className={styles.calendarContainer}>

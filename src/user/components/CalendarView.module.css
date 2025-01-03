@@ -5,13 +5,15 @@
    align-items: flex-start;
    padding: 30px;
    border-radius: 12px;
-;
+   max-height: 500px; /* Set a maximum height for the table */
+    overflow-y: auto; /* Enable vertical scrolling */
    margin-left: auto;
    margin-right: auto;
 }
 
 /* Calendar Container */
 .calendarContainer {
+   position: sticky -webkit-sticky;
    margin-right: 20px;
    padding: 20px;
    background-color: #ffffff;
@@ -75,6 +77,10 @@
    background-color: #f0f8ff !important; /* Light hover effect */
    border-color: #007bff; /* Border on hover */
    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.calendarContainerScrollBar{
+   
 }
 
 /* Navigation Buttons */

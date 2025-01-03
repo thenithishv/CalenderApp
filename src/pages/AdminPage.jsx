@@ -10,7 +10,7 @@ const AdminPage = ({ onLogout, adminEmail }) => {
                 <div className={styles.headerInfo}>
                     <h3 className={styles.dashboardHeading}>Admin Dashboard</h3>
                     <div className={styles.userInfo}>
-                        <h2 className={styles.loggedInAs}>{adminEmail}</h2>
+                        <h2 className={styles.loggedInAs}>{adminEmail} </h2>
                         <button className={styles.adminLogoutButton} onClick={onLogout}>Logout</button>
                     </div>
                 </div>

@@ -69,101 +69,104 @@ function Dashboard() {
             >
                 Log Communication
             </button>
-
             <h3 className={styles.companiesTitle}>Companies:</h3>
-            <table className={styles.companyTable}>
-                <thead>
-                    <tr>
-                        <th>Select</th>
-                        <th>Company Name</th>
-                        <th>Last Five Communications</th>
-                        <th>Next Scheduled Communication</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {companiesUser.map((company) => (
-                        <tr key={company.id}>
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    className={styles.companyCheckbox}
-                                    checked={selectedCompanies.includes(company.id)}
-                                    onChange={() => handleCompanySelect(company.id)}
-                                />
-                            </td>
-                            <td>{company.name}</td>
-                            <td>
-                                {communications
-                                    .filter((comm) => comm.companyId === company.id)
-                                    .sort(
-                                        (a, b) =>
-                                            new Date(b.communication.date) -
-                                            new Date(a.communication.date)
-                                    )
-                                    .slice(0, 5)
-                                    .map((comm) => (
-                                        <div
-                                            key={comm.id}
-                                            className={styles.communicationItem}
-                                        >
-                                            <span
-                                                className={
-                                                    comm.communication.done
-                                                        ? styles.completed
-                                                        : styles.due
-                                                }
-                                            >
-                                                {comm.communication.type} on{' '}
-                                                {comm.communication.date}{' '}
-                                                {comm.communication.done
-                                                    ? '(Completed)'
-                                                    : '(Due)'}
-                                            </span>
-                                            {!comm.communication.done &&
-                                                !isFutureDate(comm.communication.date) && (
-                                                    <button
-                                                        onClick={() =>
-                                                            handleMarkAsCompleted(comm.id)
-                                                        }
-                                                        className={
-                                                            styles.markCompletedButton
-                                                        }
-                                                    >
-                                                        Mark as{' '}
-                                                        <FontAwesomeIcon
-                                                            icon={faCheckCircle}
-                                                        />
-                                                    </button>
-                                                )}
-                                        </div>
-                                    ))}
-                            </td>
-                            <td>
-                                {communications
-                                    .filter(
-                                        (comm) =>
-                                            comm.companyId === company.id &&
-                                            (isToday(comm.communication.date) ||
-                                                new Date(comm.communication.date) >
-                                                    new Date()) &&
-                                            !comm.communication.done
-                                    )
-                                    .sort(
-                                        (a, b) =>
-                                            new Date(a.communication.date) -
-                                            new Date(b.communication.date)
-                                    )
-                                    .map((comm) => (
-                                        <div key={comm.id}>
-                                            {comm.communication.type} scheduled for{' '}
-                                            {comm.communication.date}
-                                        </div>
-                                    ))}
-                            </td>
+            
+            
+            <div className={styles.tableContainer}>
+                <table className={styles.companyTable}>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Company Name</th>
+                            <th>Last Five Communications</th>
+                            <th>Next Scheduled Communication</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {companiesUser.map((company) => (
+                            <tr key={company.id}>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        className={styles.companyCheckbox}
+                                        checked={selectedCompanies.includes(company.id)}
+                                        onChange={() => handleCompanySelect(company.id)}
+                                    />
+                                </td>
+                                <td>{company.name}</td>
+                                <td>
+                                    {communications
+                                        .filter((comm) => comm.companyId === company.id)
+                                        .sort(
+                                            (a, b) =>
+                                                new Date(b.communication.date) -
+                                                new Date(a.communication.date)
+                                        )
+                                        .slice(0, 5)
+                                        .map((comm) => (
+                                            <div
+                                                key={comm.id}
+                                                className={styles.communicationItem}
+                                            >
+                                                <span
+                                                    className={
+                                                        comm.communication.done
+                                                            ? styles.completed
+                                                            : styles.due
+                                                    }
+                                                >
+                                                    {comm.communication.type} on{' '}
+                                                    {comm.communication.date}{' '}
+                                                    {comm.communication.done
+                                                        ? '(Completed)'
+                                                        : '(Due)'}
+                                                </span>
+                                                {!comm.communication.done &&
+                                                    !isFutureDate(comm.communication.date) && (
+                                                        <button
+                                                            onClick={() =>
+                                                                handleMarkAsCompleted(comm.id)
+                                                            }
+                                                            className={
+                                                                styles.markCompletedButton
+                                                            }
+                                                        >
+                                                            Mark as{' '}
+                                                            <FontAwesomeIcon
+                                                                icon={faCheckCircle}
+                                                            />
+                                                        </button>
+                                                    )}
+                                            </div>
+                                        ))}
+                                </td>
+                                <td>
+                                    {communications
+                                        .filter(
+                                            (comm) =>
+                                                comm.companyId === company.id &&
+                                                (isToday(comm.communication.date) ||
+                                                    new Date(comm.communication.date) >
+                                                        new Date()) &&
+                                                !comm.communication.done
+                                        )
+                                        .sort(
+                                            (a, b) =>
+                                                new Date(a.communication.date) -
+                                                new Date(b.communication.date)
+                                        )
+                                        .map((comm) => (
+                                            <div key={comm.id}>
+                                                {comm.communication.type} scheduled for{' '}
+                                                {comm.communication.date}
+                                            </div>
+                                        ))}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
             {modalOpen && (
                 <CommunicationModal

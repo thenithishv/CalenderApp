@@ -46,7 +46,7 @@
 
 /* Signed-in User Display */
 .signedInUser {
-    font-size: 14px; /* Font size for user name */
+    font-size: 110px; /* Font size for user name */
     color: #333; /* Darker color for better readability */
     margin-right: 15px; /* Space between user name and notification button */
 }
@@ -95,13 +95,14 @@
 /* Notification Badge */
 .notificationBadge {
     position: absolute;
-    top: 22px;
-    right: 91px;
-    background-color: #dc3545;
+    top: 23px;
+    right: 93px;
+    background-color: #2e45a3;
     color: white;
     font-size: 12px;
     width: 20px;
     height: 20px;
+    border: 2px solid white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -157,42 +158,44 @@
    flex-grow :1; 
    border-radius :5px; 
 }
-
-/* Notification Panel */
 .notificationPanel {
-   position :fixed; 
-   top: 77px;
+    position: fixed; 
+    top: 77px;
     margin-right: -19px; 
-   right :-300px; 
-   width :300px; 
-   background-color :#ffffff; 
-   box-shadow :0 4px 15px rgba(0, 0, 0, 0.2); 
-   padding :20px; 
-   border-radius :8px; 
-   transition :right .5s ease; 
-   z-index :1100; 
-   display:flex; 
-   flex-direction :column; /* Ensure the close button and notifications stack vertically */ 
-}
-.notificationPanel.open {
-   right :20px; 
-}
-
-.notificationPanel.closed {
-   right :-300px; 
-}
-
-/* Close Button (Top-right of Panel) */
-.closeNotificationButton {
-   background-color :transparent; 
-   border:none; /* Remove border for close button */  
-   font-size :24px; /* Size of close button icon */  
-   cursor:pointer; /* Pointer cursor on hover */  
-   position:absolute; /* Positioning for close button */  
-   top:-16px; /* Positioning above panel */  
-   right:-124px; /* Positioning to the right of panel */  
-}
-
-.closeNotificationButton:hover {
-     color:#dc3545; /* Change color on hover */  
-}
+    right: -300px; 
+    width: 300px; 
+    max-height: 400px; /* Set the maximum height for the panel */
+    background-color: #ffffff; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    padding: 20px; 
+    border-radius: 8px; 
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: right .5s ease; 
+    z-index: 1100; 
+    display: flex; 
+    flex-direction: column; /* Ensure the close button and notifications stack vertically */ 
+ }
+ 
+ /* Open and closed states */
+ .notificationPanel.open {
+    right: 20px; 
+ }
+ 
+ .notificationPanel.closed {
+    right: -300px; 
+ }
+ 
+ /* Optional: Custom scrollbar styling */
+ .notificationPanel::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+ }
+ 
+ .notificationPanel::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+ }
+ 
+ .notificationPanel::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+ }
+ 

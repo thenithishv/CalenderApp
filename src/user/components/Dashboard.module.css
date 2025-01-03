@@ -1,121 +1,112 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
 /* Container */
 .dashboardContainer {
-    width: 100%;
-    margin-top: 82vh;
-    background-color: #f9f9f9;
-    padding: 10px;
-}
-
-.dashboardTitle {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333333;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 5px; /* Added padding instead of margin */
 }
 
 /* Log Communication Button */
 .logCommunicationButton {
-    margin-top: 140px;
-    width: 17%;
-    padding: 12px 20px;
-    background-color: #2e45a3; /* Green color */
-    color: white; /* Text color set to white */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-bottom: 20px; /* Space between the button and table */
-    
-    position: fixed; /* Make the button sticky */
-    top: 10px; /* Distance from the top of the viewport */
+  width: 17%;
+  padding: 12px 20px;
+  background-color: #2e45a3; /* Button color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .logCommunicationButton:hover {
-    background-color: white; /* Darker green on hover */
-    border: 2px solid #2e45a3; /* Border on hover */
-    color: #2e45a3;
+ background-color: white; /* Darker green on hover */
+ border: 2px solid #2e45a3; /* Border on hover */
+ color: #2e45a3;
 }
 
 .logCommunicationButton:disabled {
-    background-color: #cccccc; /* Disabled state (gray) */
+ background-color: #cccccc; /* Disabled state */
 }
 
 /* Companies Title */
 .companiesTitle {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #333333;
+ font-size: 20px;
+ margin-top: 20px; /* Adjusted margin */
+ margin-bottom: 10px;
+ color: #333333;
 }
+
+/* Scrollable Table Container */
+.tableContainer {
+  max-height: 400px; /* Set a maximum height for the table */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
 /* Table Styles */
 .companyTable {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.companyTable th {
-    background-color: #2e45a3; /* Header background color */
-    color: white; /* Header text color */
-    padding: 12px; /* Padding for table header */
-    text-align: left; /* Align text to the left */
-}
-
+.companyTable th,
 .companyTable td {
-    padding: 12px; /* Padding for table cells */
-    text-align: left; /* Align text to the left */
-    border-bottom: 1px solid #dddddd; /* Bottom border for cells */
+  padding: 12px; /* Padding for header and cells */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid #dddddd; /* Bottom border for cells */
+}
+
+/* Keep existing styles for th and td */
+.companyTable th {
+  background-color: #2e45a3; /* Header background color */
+  color: white; /* Header text color */
+}
+
+/* Ensure the table takes full width and headers are sticky */
+.companyTable th {
+  position: sticky;
+  top: 0; /* Stick to the top of the container when scrolling */
 }
 
 .companyTable tr:hover {
-   background-color: #f9f9f9; /* Highlight row on hover */
+  background-color: #f9f9f9; /* Highlight row on hover */
 }
 
 /* Checkbox Styling */
 .companyCheckbox {
-   cursor: pointer; /* Pointer cursor for checkboxes */
+  cursor: pointer; /* Pointer cursor for checkboxes */
 }
 
 /* Communication Status Styling */
 .completed {
-   color: green; /* Color for completed communications */
-   font-weight: bold; /* Bold text for completed communications */
+  color: green; /* Color for completed communications */
+  font-weight: bold; /* Bold text for completed communications */
 }
 
 .due {
-   color: red; /* Color for due communications */
-   font-weight: bold; /* Bold text for due communications */
+  color: red; /* Color for due communications */
+  font-weight: bold; /* Bold text for due communications */
 }
 
-/* Mark as Completed Button */
+/* Mark as Completed Button (Updated)*/
 .markCompletedButton {
-   width: 100px; /* Fixed width for button */
-   padding: 8px 12px; /* Padding for button */
-   background-color: #2e45a3; /* Green color for button */
+   width: 80px; /* Reduced width for a smaller button */
+   padding: 6px 10px; /* Reduced padding for a smaller button */
+   background-color: #2e45a3; /* Button color */
    color: white; /* Text color for button */
-   border: none; /* No border for button */
    border-radius: 5px; /* Rounded corners for button */
-   cursor: pointer; /* Pointer cursor on hover */
-   font-size: 14px; /* Font size for button */
-   transition: background-color 0.3s ease; /* Transition effect for hover */
+   cursor:pointer ;  
+   font-size :12px ; /* Slightly smaller font size */ 
+   margin-left :30px ; /* Add left margin for spacing */ 
 }
 
 .markCompletedButton:hover {
-    background-color: white; /* Darker green on hover */
-    border: 2px solid #2e45a3; /* Border on hover */
-    color: #2e45a3;
+   color: #2e45a3;
+   background-color:white ;  
+   border: 2px solid #2e45a3; /* Border on hover */
 }
-
-/* Communication Item Styling */
-.communicationItem {
-   display: flex; /* Flexbox layout for communication items */
-   align-items: center; /* Center items vertically */
-   justify-content: space-between; /* Space between items horizontally */
-   margin-bottom: 10px; /* Space below each item */
-}
-

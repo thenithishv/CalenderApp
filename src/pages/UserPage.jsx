@@ -8,7 +8,7 @@ import Notifications from '../user/components/Notifications';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCalendarDays, faBarChart, faRectangleXmark } from '@fortawesome/free-regular-svg-icons';
 
-function UserPage({ onLogout, userName }) {
+function UserPage({ onLogout, userEmail }) {
     const dispatch = useDispatch();
     const [isNotificationPanelOpen, setNotificationPanelOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('dashboard');
@@ -49,7 +49,7 @@ function UserPage({ onLogout, userName }) {
                 <div className={styles.headerTitles}>
                     <h3 className={styles.userPageTitle}>User Dashboard</h3>
                     <div className={styles.headerButtons}>
-                        <span className={styles.signedInUser}>{userName}</span> {/* Display signed-in user */}
+                        <span className={styles.signedInUser}>{userEmail}</span> 
                         <button className={styles.notificationButton} onClick={toggleNotificationPanel}>
                             <FontAwesomeIcon icon={faBell} />
                             {unreadCount > 0 && (
@@ -85,9 +85,7 @@ function UserPage({ onLogout, userName }) {
             <div
                 className={`${styles.notificationPanel} ${isNotificationPanelOpen ? styles.open : styles.closed}`}
             >
-                <button className={styles.closeNotificationButton} onClick={() => setNotificationPanelOpen(false)}>
-                    <FontAwesomeIcon icon={faRectangleXmark} />
-                </button>
+                
                 <Notifications />
             </div>
         </div>
