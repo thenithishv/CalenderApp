@@ -7,6 +7,6 @@ Downaload the code or clone the code then:
 3.  npm install react-calendar  
 4. npm install date-fns  
 5. npm run start-json-server
-Finally => npm run dev 
+6. Finally => npm run dev 
     
 note: as the credentials has to hiT the server you will have to wait for 1 to 2 min in the begining, then it will work fine thank you
