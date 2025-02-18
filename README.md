@@ -7,6 +7,15 @@
 
 <h2>🧐 Note </h2>
 Note: As the credentials need to hit the server you will have to wait for 1 to 2 minutes at the beginning. After that it will work fine. Thank you.
+<h3>Access Credentials</h3>
+
+Admin Access:
+Username: admin@gmail.com
+Password: admin@123
+
+User Access:
+Username: user1@gmail.com
+Password: user@123
 
 <h2>🚀 Demo</h2>
 
