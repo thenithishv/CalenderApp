@@ -9,12 +9,12 @@
 Note: As the credentials need to hit the server you will have to wait for 1 to 2 minutes at the beginning. After that it will work fine. Thank you.
 <h3>Access Credentials</h3>
 
-Admin Access:
-Username: admin@gmail.com
-Password: admin@123
+Admin Access:<br/>
+Username: admin@gmail.com<br/>
+Password: admin@123<br/>
 
-User Access:
-Username: user1@gmail.com
+User Access:<br/>
+Username: user1@gmail.com<br/>
 Password: user@123
 
 <h2>🚀 Demo</h2>
